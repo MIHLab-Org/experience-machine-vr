@@ -32,6 +32,10 @@ env:
 
 jobs:
   build-and-publish:
+    # PAUSED 2026-11-01 while the project targets Quest VR (Meta VR Start Developer
+    # Competition). The job is skipped unless the repo variable WEBGL_DEPLOY_ENABLED
+    # is set to true (Settings > Secrets and variables > Actions > Variables).
+    if: vars.WEBGL_DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
