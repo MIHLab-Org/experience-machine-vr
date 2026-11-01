@@ -1,7 +1,7 @@
 # Experience Machine — Backlog
 
 Unity project: `C:\Users\Administrator\Desktop\MIHLab\My project` (Unity 6000.5.7f1)
-GitHub: `redapemusic35/experience-machine-vr` (Quest VR edition; scheduled runs work here, on branch `claude/auto`). Copied 2026-11-01 from `redapemusic35/The-Experience-Machine-2026-08-07_01-45-23`, which stays the web edition; issue numbers below (#1-#13) refer to that old repo.
+GitHub: `MIHLab-Org/experience-machine-vr` (Quest VR edition; scheduled runs work here, on branch `claude/auto`). Forked 2026-10-31 from `redapemusic35/The-Experience-Machine-2026-08-07_01-45-23`, which stays the web edition; issue numbers below (#1-#13) refer to that old repo.
 Dialogue: `Assets/Dialogue` (Yarn Spinner 3.x)
 
 **Current goal: Meta VR Start Developer Competition 2026. Deadline Tue Nov 18, 12:00 pm PST (aim to submit Nov 17).** Hard rule: the whole experience must be usable with hands only, no controller. Submission: APK in a release channel named "Competition" + invite URL, video under 3 minutes (headset or XR Simulator) on YouTube/Vimeo, Devpost form. Likely division: Adapted / Significantly Updated (project predates Sep 24). Rules: https://start-developer-competition-26.devpost.com/
