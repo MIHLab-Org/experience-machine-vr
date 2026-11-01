@@ -5,7 +5,7 @@ Runs happen in a cloud session against the GitHub repo, not on Jim's computer. E
 ## 0. Ground rules
 
 - Do exactly **one** backlog task per run. Never start a second, even if time remains.
-- Only take tasks marked `todo`, `auto`, size `S`, with every dependency `done`.
+- Only take tasks marked `todo`, `auto`, size `S`, with every dependency `done`. Never take `parked` tasks.
 - Work on the git branch `claude/auto`. Never commit to `main`. Never force-push. Never delete files; if something should go, list it under "Notes from Jim" instead.
 - Never edit `.unity` scene files, `.prefab` files, `ProjectSettings/`, `Packages/manifest.json`, or anything in `Library/`. Scene changes are done through Editor scripts Jim runs himself.
 - Never run Unity builds, never open the Unity Editor, never touch store dashboards, Stripe, Supabase, or any account.
@@ -21,17 +21,21 @@ Clone the repo, then `git fetch origin claude/auto` and check out `claude/auto` 
 |---|---|---|
 | G1 Monthly cap | Count rows for the current month whose result is `review` or `blocked` (skipped rows do not count). If the count ≥ **MONTHLY_RUN_CAP** (set below), stop. | Append a `skipped: monthly cap` row. End. |
 | G2 Weekly cap | If ≥ **WEEKLY_RUN_CAP** completed runs in the last 7 days, stop. | Append `skipped: weekly cap`. End. |
-| G3 Review queue | If 2 or more backlog tasks are in `review`, stop — Jim hasn't caught up, and more work would just pile up. | Append `skipped: review queue full`. End. |
-| G4 Unmerged pile-up | If `claude/auto` is more than 4 task commits ahead of `main` (`git rev-list --count origin/main..claude/auto`, counting only `auto:` commits), Jim hasn't merged recent work: stop. | Append `skipped: unmerged work piling up`. End. |
+| G3 Review queue | If **REVIEW_QUEUE_CAP** or more backlog tasks are in `review`, stop — Jim hasn't caught up, and more work would just pile up. | Append `skipped: review queue full`. End. |
+| G4 Unmerged pile-up | If `claude/auto` is more than **UNMERGED_CAP** task commits ahead of `main` (`git rev-list --count origin/main..claude/auto`, counting only `auto:` commits), Jim hasn't merged recent work: stop. | Append `skipped: unmerged work piling up`. End. |
 | G5 Nothing eligible | If no task meets the rules in §0, stop. | Append `skipped: no eligible task`. End. |
 | G6 Pause switch | If a file named `.claude-runs/PAUSE` exists on `main` or `claude/auto`, stop. (Jim pauses runs by committing an empty `PAUSE` file on main.) | Append `skipped: paused`. End. |
 
 Settings (Jim edits these):
 
 ```
-MONTHLY_RUN_CAP = 9
-WEEKLY_RUN_CAP  = 2
+MONTHLY_RUN_CAP   = 20
+WEEKLY_RUN_CAP    = 7
+REVIEW_QUEUE_CAP  = 3
+UNMERGED_CAP      = 6
 ```
+
+Raised 2026-11-01 (was 9 / 2 / 2 / 4) for the Meta VR contest sprint, about one run a day until Nov 18. Jim: lower them again after the contest.
 
 **Honest limit:** a run cannot see the actual plan-usage meter. These caps are a proxy: they bound how many runs happen and keep each run small. Check the real usage in Claude's settings after the first two weeks and lower the caps if runs are eating more than you want.
 
@@ -46,7 +50,7 @@ WEEKLY_RUN_CAP  = 2
    - If a check fails and one fix attempt doesn't solve it, stop: set the task to `blocked`, write what went wrong in the Notes column, commit what you have.
 5. Mark the task `review` (or `blocked`). If the task finishes a whole track step that needs Jim, say which `jim` task is now unblocked.
 6. Commit on `claude/auto` with message `auto: <ID> <short title>`. Push the branch.
-7. Update the task's GitHub issue (the number is in the track heading, or in the task text for bugs). If the task reached `review`, tick its checkbox in the issue's **Tasks** list (edit the issue body; change only that one `- [ ]` to `- [x]`). If it is `blocked`, leave the box unticked and add one short comment saying why. Never close, reopen, retitle or relabel issues; Jim closes them after merging.
+7. Update the task's GitHub issue, if it has one (the number is in the track heading, or in the task text for bugs). Track 0 (V tasks) has no issues: skip this step for them. If the task reached `review`, tick its checkbox in the issue's **Tasks** list (edit the issue body; change only that one `- [ ]` to `- [x]`). If it is `blocked`, leave the box unticked and add one short comment saying why. Never close, reopen, retitle or relabel issues; Jim closes them after merging.
 
 ## 3. Log and report
 
