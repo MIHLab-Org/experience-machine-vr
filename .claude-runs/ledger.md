@@ -21,3 +21,4 @@
 | 2026-11-03 | V5 | review | Assets/VR/HandTalkPrompt.cs, Assets/Dialogue/PhilosopherNPC.cs, Assets/Dialogue/PhilosopherWalker.cs, CLAUDE_BACKLOG.md | Manual test run: world-space Talk button (poke/ray-pinch ready, no Meta types) + public StartTalk/StartWalk on the NPC scripts; compile check run 3 still in progress at start (runs 1-2: licence missing) |
 | 2026-11-03 | V1, V5 | note | CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Interactive: compile check green for the first time (run 7, f2e6751, includes V5); Unity secrets on the fork now work |
 | 2026-11-03 | V1, V2, V5 | done | CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Interactive: Jim approved all three; marked done (review queue now empty) |
+| 2026-11-03 | setup-issues | done | CLAUDE_BACKLOG.md, CLAUDE_RUNBOOK.md, .claude-runs/ledger.md | Interactive: Issues enabled on the fork; #1-#11 created for V3, V4, V6-V14 (labels track-0 + jim/auto); runs sync the backlog from them |
