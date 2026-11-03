@@ -1,6 +1,6 @@
 # Experience Machine — Backlog
 
-Unity project: `C:\Users\Administrator\Desktop\MIHLab\My project` (Unity 6000.5.7f1)
+Unity project (Quest VR edition): `C:\Users\Administrator\Desktop\MIHLab\experience-machine-vr` (Unity 6000.5.7f1, cloned from this repo 2026-11-03). The old folder `C:\Users\Administrator\Desktop\MIHLab\My project` stays the web edition (old repo).
 GitHub: `MIHLab-Org/experience-machine-vr` (Quest VR edition; scheduled runs work here, on branch `claude/auto`). Forked 2026-10-31 from `redapemusic35/The-Experience-Machine-2026-08-07_01-45-23`, which stays the web edition; issue numbers below (#1-#13) refer to that old repo.
 Dialogue: `Assets/Dialogue` (Yarn Spinner 3.x)
 
