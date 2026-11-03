@@ -5598,7 +5598,7 @@ SkinnedMeshRenderer:
   m_Mesh: {fileID: 2988033852023935963, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
   m_Bones: []
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 1738444055}
+  m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -7235,7 +7235,7 @@ Transform:
   m_GameObject: {fileID: 995163809}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.49999964, z: -0, w: 0.8660256}
-  m_LocalPosition: {x: 6.0621643, y: 0.94244957, z: -3.5}
+  m_LocalPosition: {x: 43.5, y: 2.94, z: 9.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8952,16 +8952,6 @@ Terrain:
   m_EnableTreesAndDetailsRayTracing: 0
   m_EnableHeightmapLODFrustumCulling: 1
   m_TreeMotionVectorModeOverride: 3
---- !u!4 &1251138401 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2646284925975857570, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
-  m_PrefabInstance: {fileID: 1941071975}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1256788915 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8286684065680063800, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
-  m_PrefabInstance: {fileID: 1264235036}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1262275698
 GameObject:
   m_ObjectHideFlags: 0
@@ -9367,7 +9357,7 @@ PrefabInstance:
     - target: {fileID: 5197118176682910397, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_RootBone
       value: 
-      objectReference: {fileID: 1256788915}
+      objectReference: {fileID: 0}
     - target: {fileID: 5197118176682910397, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_UpdateWhenOffscreen
       value: 1
@@ -13756,11 +13746,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707861245}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1738444055 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6350939731723414528, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
-  m_PrefabInstance: {fileID: 1264235036}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1741416136
 GameObject:
   m_ObjectHideFlags: 0
@@ -15241,7 +15226,7 @@ Transform:
   m_GameObject: {fileID: 1876821686}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.7216625, z: 7}
+  m_LocalPosition: {x: -22.7, y: 2.8, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16106,7 +16091,7 @@ SkinnedMeshRenderer:
   m_Mesh: {fileID: -8029122615989102847, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
   m_Bones: []
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 1251138401}
+  m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
