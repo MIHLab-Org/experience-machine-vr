@@ -13,6 +13,10 @@ Runs happen in a cloud session against the GitHub repo, not on Jim's computer. E
 - Do not edit Jim's own prose (dialogue he wrote, notes, docs he authored). New dialogue goes in new `.yarn` files.
 - No copyrighted text from *Reality+* or any other book in dialogue.
 
+## Repository changes
+
+A scheduled task can only push to the repositories that were attached when it was created; naming a repo in its prompt doesn't grant access. So runs never create, fork, rename or transfer repositories, and never switch to a different repo. Whenever the project moves to another repository (a new fork, a rename, a new org), whoever makes the move must also recreate the scheduled task from a session that has the new repo selected, disable the old task, and update the repo named in the task prompt and in CLAUDE_BACKLOG.md. Runs check write access before doing any work (task prompt step 2).
+
 ## 1. Guards — check all of these before doing any work
 
 Clone the repo, then `git fetch origin claude/auto` and check out `claude/auto` if it exists (otherwise stay on `main`). Read `.claude-runs/ledger.md` and `CLAUDE_BACKLOG.md` from that branch. The ledger on `claude/auto` is the authoritative one. Log skipped runs there too (commit + push only the ledger change).
