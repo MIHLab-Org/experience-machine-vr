@@ -26,6 +26,8 @@ Clone the repo, then `git fetch origin claude/auto` and check out `claude/auto` 
 | G5 Nothing eligible | If no task meets the rules in §0, stop. | Append `skipped: no eligible task`. End. |
 | G6 Pause switch | If a file named `.claude-runs/PAUSE` exists on `main` or `claude/auto`, stop. (Jim pauses runs by committing an empty `PAUSE` file on main.) | Append `skipped: paused`. End. |
 
+**Compile check first:** after the guards pass, read the latest **Compile check** workflow run on `claude/auto` (GitHub MCP `actions_list`; the summary job lists the `error CS` lines). If it is red with compiler errors, this run's task is fixing them (log it as `CC <date> fix compile errors`, commit message `auto: CC fix compile errors`), not a backlog task. If it is red for another reason (licence, image, disk) or has never run, note that in the ledger row and carry on with the backlog. Setup: `Docs/compile-check.md`.
+
 Settings (Jim edits these):
 
 ```

@@ -16,3 +16,4 @@
 | 2026-10-30 | P2 | review | Docs/layout-plan.md, CLAUDE_BACKLOG.md | Interactive: ring radii 45-85 m per area; cross-area edges need meeting points (decision for P3) |
 | 2026-10-31 | — | skipped: weekly cap | .claude-runs/ledger.md | G2: 3 completed runs in the last 7 days (W2-W4, C1-C3, P2 on 10-30); G3 and G4 would also fail (7 tasks in review, 9 unmerged auto: commits) |
 | 2026-11-01 | setup-vr | done | CLAUDE_BACKLOG.md, CLAUDE_RUNBOOK.md, .github/workflows/deploy-webgl.yml | Interactive: Meta VR contest sprint. Track 0 (V1-V14) added, non-contest work parked, caps raised to 20/7/3/6, web deploy paused; repo moving to MIHLab-Org/experience-machine-vr (fork) |
+| 2026-11-03 | V1 | review | .github/workflows/compile-check.yml, Assets/Editor/CompileCheck.cs, Docs/compile-check.md, CLAUDE_RUNBOOK.md, CLAUDE_BACKLOG.md | Android compile-check workflow (GameCI, no build) + error CS job summary; needs the 3 Unity secrets in the fork |

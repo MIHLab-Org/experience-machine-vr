@@ -1,0 +1,91 @@
+# Compile check: opens the project in Unity batch mode with the Android build target
+# (the Quest target) and fails if any script fails to compile. No build, no deploy.
+# Runs on every push to claude/auto and main, and by hand (Actions > Compile check).
+# The second job copies the "error CS" lines from the Unity log into the job summary.
+# Setup and caveats: Docs/compile-check.md
+
+name: Compile check
+
+on:
+  push:
+    branches: [claude/auto, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read   # the summary job reads the compile job's log
+
+concurrency:
+  group: compile-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  compile:
+    name: compile
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          df -h /
+
+      - name: Checkout (with LFS)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Cache Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-Android-${{ hashFiles('Packages/packages-lock.json', 'ProjectSettings/ProjectVersion.txt') }}
+          restore-keys: Library-Android-
+
+      # buildMethod is a method that only exits: Unity must compile every script before
+      # it can call it, and aborts with a non-zero exit code if any script fails.
+      - name: Open project for Android and compile scripts
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: Android
+          buildMethod: CompileCheck.Run
+          versioning: None
+          # unityVersion is read from ProjectSettings/ProjectVersion.txt.
+
+  summary:
+    name: summary
+    needs: compile
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write compile errors to the job summary
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESULT: ${{ needs.compile.result }}
+        run: |
+          {
+            echo "## Compile check (Android): $RESULT"
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
+          job_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/jobs" \
+            --jq '.jobs[] | select(.name=="compile") | .id' | head -n1)
+          if [ -z "$job_id" ] || ! gh api "repos/$GITHUB_REPOSITORY/actions/jobs/$job_id/logs" > compile.log 2>/dev/null; then
+            echo "Could not read the compile job's log." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          # Unity prints each compiler error once or twice; keep one copy of each.
+          grep -oE '[^ ]*\.cs\([0-9]+,[0-9]+\): error CS[0-9]+:.*' compile.log | sort -u > errors.txt || true
+          if [ -s errors.txt ]; then
+            echo "$(wc -l < errors.txt) compiler error(s):" >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            head -n 100 errors.txt >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$RESULT" = "success" ]; then
+            echo "No compiler errors." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No 'error CS' lines found; the job failed for another reason (licence, image, disk). Open the compile job's log." >> "$GITHUB_STEP_SUMMARY"
+          fi
