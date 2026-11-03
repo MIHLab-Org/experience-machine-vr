@@ -233,6 +233,29 @@ public class PhilosopherWalker : MonoBehaviour
 
     // ---------------------------------------------------------------- public API (used by YarnWalkCommands)
 
+    /// <summary>True while he is idle and could be asked to start walking (VR Talk button, backlog V5).</summary>
+    public bool CanStartWalk =>
+        state == WalkState.Idle && !awaitingHandoff && !waitingForDialogue &&
+        (dialogueRunner == null || !dialogueRunner.IsDialogueRunning);
+
+    /// <summary>
+    /// Starts the walk now, as if the player had walked into Trigger Radius: he stands up and
+    /// runs the Join Node. Used by HandTalkPrompt so a poke or ray-pinch can start him even
+    /// when Join On Approach is off. Returns false if he is not idle or dialogue is running.
+    /// </summary>
+    public bool StartWalk()
+    {
+        if (!CanStartWalk) return false;
+        Active = this;
+        EnterState(WalkState.Rising);
+        if (useSeatedAnimations)
+        {
+            SetBool(seatedBoolParam, false);
+            SetTrigger(standUpTriggerParam);
+        }
+        return true;
+    }
+
     /// <summary>Walk with the player to a new place. Optional node runs on arrival.</summary>
     public void WalkTo(Transform target, string arrivalNodeOnReach = null)
     {

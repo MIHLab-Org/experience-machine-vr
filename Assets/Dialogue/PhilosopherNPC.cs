@@ -99,6 +99,28 @@ public class PhilosopherNPC : MonoBehaviour
         dialogueRunner.StartDialogue(startNode);
     }
 
+    // ---------------------------------------------------------------- public API (VR Talk button, backlog V5)
+
+    /// <summary>Name shown on prompts.</summary>
+    public string DisplayName => displayName;
+
+    /// <summary>True when a conversation could start now (no other dialogue running).</summary>
+    public bool CanTalk => dialogueRunner != null && !dialogueRunner.IsDialogueRunning && !string.IsNullOrEmpty(startNode);
+
+    /// <summary>
+    /// Starts this philosopher's node, exactly as pressing the talk key does. Used by
+    /// HandTalkPrompt (poke / ray-pinch) so talking never needs a keyboard. Returns false
+    /// if another conversation is running.
+    /// </summary>
+    public bool StartTalk()
+    {
+        if (!CanTalk) return false;
+        firedThisVisit = true;
+        talking = true;
+        dialogueRunner.StartDialogue(startNode);
+        return true;
+    }
+
     private bool TalkPressed()
     {
         if (Keyboard.current != null && Keyboard.current[talkKey].wasPressedThisFrame) return true;
