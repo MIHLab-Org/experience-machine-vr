@@ -12,7 +12,8 @@ How to read this file:
 - **Who**: `auto` = a scheduled run may pick it up · `jim` = needs the Unity Editor, a headset, an account, or a judgment call
 - **Size**: `S` fits in one run. Anything `M` or `L` must be split into `S` tasks before a scheduled run touches it.
 - Scheduled runs take the **first** `todo / auto / S` task whose dependencies are `done`. Jim reorders by moving lines.
-- **Issue**: each track (and each bug) has a GitHub issue with one checkbox per task. Runs tick the box when a task reaches `review`; Jim checks it off in Notion when he merges it, and closes the issue when every box is done. Those issues live in the old (web) repo; Track 0 has no issues, so runs skip the issue step for V tasks.
+- **Issue** (old tracks): each track (and each bug) has a GitHub issue with one checkbox per task. Runs tick the box when a task reaches `review`; Jim checks it off in Notion when he merges it, and closes the issue when every box is done. Those issues live in the old (web) repo; Track 0 has no issues, so runs skip the issue step for V tasks.
+- **Issue** (Track 0, from 2026-11-03): every Track 0 task that isn't done has its own issue in `MIHLab-Org/experience-machine-vr` (number in the ID cell, labels `track-0` + `auto`/`jim`). Jim approves an `auto` task by **closing its issue**, asks for changes by commenting, and finishes a `jim` task by commenting his notes and closing it. Runs sync this file from the issues at the start of every run (runbook §1), so Jim never has to edit this file.
 
 ---
 
