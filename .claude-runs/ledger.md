@@ -23,3 +23,4 @@
 | 2026-11-03 | V1, V2, V5 | done | CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Interactive: Jim approved all three; marked done (review queue now empty) |
 | 2026-11-03 | setup-issues | done | CLAUDE_BACKLOG.md, CLAUDE_RUNBOOK.md, .claude-runs/ledger.md | Interactive: Issues enabled on the fork; #1-#11 created for V3, V4, V6-V14 (labels track-0 + jim/auto); runs sync the backlog from them |
 | 2026-11-04 | V6 | review | Assets/VR/WorldSpaceDialoguePanel.cs, CLAUDE_BACKLOG.md, .claude-runs/ledger.md | World-space lazy-follow Yarn dialogue panel + hand Continue button + taller option buttons; guards G1 3/20, G2 6/7, G3 0, G4 0; compile check green before run (run 11); issues: no changes to sync |
+| 2026-11-04 | V4, C4 | note | CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Interactive: Jim's V4 answers posted on issue #2 (choice-driven routing across 3 groves, auto-follow walks, wrist Walk button + point-to-walk, Entertainment); C4 back to all philosophers |
