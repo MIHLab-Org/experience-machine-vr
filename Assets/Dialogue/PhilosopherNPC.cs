@@ -132,6 +132,8 @@ public class PhilosopherNPC : MonoBehaviour
     {
         if (!showPrompt || !requireKeyPress || !inRange || talking) return;
         if (dialogueRunner != null && dialogueRunner.IsDialogueRunning) return;
+        // OnGUI does not draw in a headset, and in VR the HandTalkPrompt button replaces this hint.
+        if (UnityEngine.XR.XRSettings.isDeviceActive || GetComponentInParent<HandTalkPrompt>() != null) return;
 
         string text = $"Press {talkKey} to talk to {displayName}";
         var style = new GUIStyle(GUI.skin.box) { fontSize = 18, alignment = TextAnchor.MiddleCenter };
