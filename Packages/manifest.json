@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#v10.3.0",
+    "com.meta.xr.sdk.all": "207.0.1",
     "com.unity.ai.assistant": "2.17.0-pre.1",
     "com.unity.ai.inference": "2.6.1",
     "com.unity.ai.navigation": "2.0.14",
@@ -20,6 +21,7 @@
     "com.unity.ugui": "2.5.0",
     "com.unity.visualeffectgraph": "17.5.0",
     "com.unity.visualscripting": "1.9.12",
+    "com.unity.xr.openxr": "1.17.1",
     "dev.yarnspinner.unity": "https://github.com/YarnSpinnerTool/YarnSpinner-Unity.git#current",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.adaptiveperformance": "1.0.0",
