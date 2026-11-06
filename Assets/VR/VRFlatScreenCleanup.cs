@@ -22,9 +22,49 @@ public static class VRFlatScreenCleanup
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.sceneLoaded += OnSceneLoaded;
         Cleanup();
+        Watcher.Watch();
     }
 
-    private static void OnSceneLoaded(Scene scene, LoadSceneMode mode) => Cleanup();
+    private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Cleanup();
+        Watcher.Watch();
+    }
+
+    /// <summary>
+    /// The headset (or the Meta XR Simulator) often becomes active a few frames after the scene
+    /// loads, so a check at load time alone misses it. This keeps checking for a few seconds.
+    /// </summary>
+    private class Watcher : MonoBehaviour
+    {
+        private const float WatchSeconds = 10f;
+        private static Watcher instance;
+        private float timeLeft;
+
+        public static void Watch()
+        {
+            if (instance == null)
+            {
+                var go = new GameObject("VRFlatScreenCleanup") { hideFlags = HideFlags.HideInHierarchy };
+                DontDestroyOnLoad(go);
+                instance = go.AddComponent<Watcher>();
+            }
+            instance.timeLeft = WatchSeconds;
+            instance.enabled = true;
+        }
+
+        private void Update()
+        {
+            if (InHeadset())
+            {
+                Cleanup();
+                enabled = false;
+                return;
+            }
+            timeLeft -= Time.unscaledDeltaTime;
+            if (timeLeft <= 0f) enabled = false;
+        }
+    }
 
     private static bool InHeadset()
     {
