@@ -250,20 +250,48 @@ public class WorldSpaceDialoguePanel : MonoBehaviour
         }
     }
 
-    /// <summary>Builds a large Continue button at the bottom right of the canvas.</summary>
+    /// <summary>The RectTransform of Yarn's LinePresenter (found by type name), or null.</summary>
+    private RectTransform FindLineBox()
+    {
+        foreach (var mb in GetComponentsInChildren<MonoBehaviour>(true))
+        {
+            if (mb != null && mb.GetType().Name == "LinePresenter") return mb.transform as RectTransform;
+        }
+        return null;
+    }
+
+    /// <summary>Builds a large Continue button just below the line box (or at the bottom right of the canvas).</summary>
     private Button BuildContinueButton()
     {
         var go = new GameObject("VR Continue Button", typeof(RectTransform), typeof(Image), typeof(Button));
-        go.transform.SetParent(transform, false);
-        go.transform.SetAsLastSibling();
 
         // 0.24 x 0.09 m whatever the canvas pixel size is.
         float pxPerMetre = rect.rect.width > 1f ? rect.rect.width / Mathf.Max(0.1f, panelWidth) : 1600f / 0.9f;
         var r = go.GetComponent<RectTransform>();
-        r.anchorMin = r.anchorMax = new Vector2(1f, 0f);
-        r.pivot = new Vector2(1f, 0f);
         r.sizeDelta = new Vector2(0.24f, 0.09f) * pxPerMetre;
-        r.anchoredPosition = new Vector2(-0.03f, 0.03f) * pxPerMetre;
+
+        // Hang it just below the line box (Yarn's LinePresenter), centred, so it never covers the
+        // text. Falls back to the bottom right of the canvas if there is no LinePresenter.
+        RectTransform lineBox = FindLineBox();
+        if (lineBox != null)
+        {
+            go.transform.SetParent(lineBox, false);
+            r.anchorMin = r.anchorMax = new Vector2(0.5f, 0f);
+            r.pivot = new Vector2(0.5f, 1f);
+            // The line box may be scaled differently from the canvas; keep the button's size in metres.
+            float s = lineBox.lossyScale.x > 0f && transform.lossyScale.x > 0f ? transform.lossyScale.x / lineBox.lossyScale.x : 1f;
+            r.sizeDelta *= s;
+            r.anchoredPosition = new Vector2(0f, -0.02f * pxPerMetre * s);
+        }
+        else
+        {
+            go.transform.SetParent(transform, false);
+            r.anchorMin = r.anchorMax = new Vector2(1f, 0f);
+            r.pivot = new Vector2(1f, 0f);
+            r.anchoredPosition = new Vector2(-0.03f, 0.03f) * pxPerMetre;
+        }
+        go.transform.SetAsLastSibling();
+        go.AddComponent<LayoutElement>().ignoreLayout = true; // in case the line box uses a layout group
 
         var img = go.GetComponent<Image>();
         img.color = new Color(0.12f, 0.12f, 0.14f, 0.92f);
@@ -286,7 +314,7 @@ public class WorldSpaceDialoguePanel : MonoBehaviour
         label.text = "Continue";
         label.alignment = TextAnchor.MiddleCenter;
         label.color = Color.white;
-        label.fontSize = Mathf.RoundToInt(0.045f * pxPerMetre);
+        label.fontSize = Mathf.RoundToInt(0.045f * pxPerMetre * (r.sizeDelta.x / (0.24f * pxPerMetre)));
         label.raycastTarget = false;
 
         return btn;
