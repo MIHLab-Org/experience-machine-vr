@@ -152,6 +152,16 @@ public class PhilosopherWalker : MonoBehaviour
     public WalkState State => state;
     public string JoinNode => joinNode;
 
+    // Read-only views for WalkAlongMover (V8); no behaviour change.
+    /// <summary>Where the walk is heading now (handoff target, walk_to target, or Destination). Null if none.</summary>
+    public Transform Goal => CurrentGoal();
+    /// <summary>The transform this walker treats as the player.</summary>
+    public Transform Player => player;
+    public float WalkSpeed => walkSpeed;
+    public float ArriveDistance => arriveDistance;
+    /// <summary>True while one of this walker's Yarn nodes is running or about to.</summary>
+    public bool WaitingForDialogue => waitingForDialogue;
+
     // ---------------------------------------------------------------- lifecycle
 
     private void Reset()
