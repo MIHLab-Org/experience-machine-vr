@@ -1,0 +1,60 @@
+// =====================================================================
+// CHURCH FATHERS ROUTE  (contest slice, Meta VR Start Developer Competition 2026)
+// Backlog V17-V20. Jim's V4 decision (2026-11-06): Socrates asks one question, and
+// each answer sends the player to an early church father, who then points them on
+// to a contemporary philosopher in the same grove.
+//
+//   It's not real     -> Gregory of Nyssa (Metaphysics)   -> Michael Heim
+//   I don't know      -> Augustine (Epistemology)         -> Nick Bostrom
+//   Who cares?        -> John Chrysostom (Values)         -> Robert Nozick
+//
+// Each father's third answer sends the player to the next grove:
+//   Metaphysics -> Epistemology -> Values -> Metaphysics
+//
+// All lines are paraphrase. No text from Reality+ or from any translation is quoted.
+// This file never changes RealityPlus_Map.yarn; Jim adds the one entry line himself.
+//
+// UNITY HOOKS
+//   Contest_Question     Socrates' contest question. Jim: in Map_Start, change the
+//                        last line `<<jump Hub_Question>>` to `<<jump Contest_Question>>`.
+//                        (Its fourth answer still leads to Hub_Question, so nothing is lost.)
+//   Talk_GregoryOfNyssa  Start Node of the Gregory of Nyssa NPC (V18)
+//   Talk_Augustine       Start Node of the Augustine NPC (V19)
+//   Talk_Chrysostom      Start Node of the John Chrysostom NPC (V20)
+//
+// <<handoff NAME>> (YarnWalkCommands, W3) needs the speaker to be a PhilosopherWalker
+// (Socrates converted with MIHLab > Convert selected NPC to Walker, task W5) and the
+// target to be findable by that name: its Philosopher Id, or a GameObject name that
+// contains it. Name the new NPCs "Gregory of Nyssa", "Augustine", "John Chrysostom".
+// =====================================================================
+
+title: Contest_Question
+position: 6500,1602
+tags: hub contest
+area: Hub
+speaker: Socrates
+---
+<<declare $came_from = "">>
+<<declare $contest_answer = "">>
+Socrates: Before I send you anywhere, look at this tree beside us. Bark, leaves, the shade it throws.
+Socrates: Now suppose someone built a tree exactly like it inside a computer, and you stood under it wearing a headset.
+Socrates: Would that virtual tree be a real object?
+-> It's not real.
+    <<set $contest_answer to "not_real">>
+    Socrates: Not real. Then you think you know what makes a thing real, and the virtual tree lacks it. What is it, I wonder?
+    Socrates: A bishop from Cappadocia once asked what a tree is made of, and his answer surprised everyone. Walk with me to Gregory of Nyssa.
+    <<handoff "Gregory of Nyssa">>
+-> I don't know.
+    <<set $contest_answer to "dont_know">>
+    Socrates: Good. Saying "I don't know" is where I began too. But can you know anything at all, if you cannot tell a real tree from a made one?
+    Socrates: There is a teacher from North Africa who fought that very doubt for years. Walk with me to Augustine.
+    <<handoff "Augustine">>
+-> Who cares?
+    <<set $contest_answer to "who_cares">>
+    Socrates: Who cares! That is a real question, though you asked it to dismiss mine. If the shade is cool and the leaves are green, what would be missing?
+    Socrates: There is a preacher from Antioch who spent his life asking what is truly worth having. Walk with me to John Chrysostom.
+    <<handoff "John Chrysostom">>
+-> I'd rather start somewhere else.
+    Socrates: Then tell me what troubles you, and we will find the right grove for it.
+    <<jump Hub_Question>>
+===

@@ -31,3 +31,4 @@
 | 2026-11-06 | V4 | done | CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Interactive: Jim confirmed, #2 closed on his behalf; V8, V12, V13 now eligible (V15 after V8) |
 | 2026-11-06 | V4 | note | CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Interactive: Jim picked grove leads (Augustine / Gregory of Nyssa / Chrysostom), posted on #2 and in Notes from Jim; contemporary targets still open |
 | 2026-11-06 | V17-V21 | note | CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Interactive: Jim chose Gregory→Heim, Augustine→Bostrom, Chrysostom→Nozick; added V17-V20 (auto: Socrates question + 3 church-father nodes in ChurchFathers.yarn) and V21 (jim: place NPCs), issues #15-#19; V10 now also waits on V21 |
+| 2026-11-06 | V17 | review | Assets/Dialogue/ChurchFathers.yarn, CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Interactive early run (Jim asked): Socrates' contest question with handoffs to the three fathers; Y1 0 errors; V21 now says to convert the fathers to Walkers (needs W5) |
