@@ -29,3 +29,4 @@
 | 2026-11-06 | sync | skipped: no eligible task | CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Issue sync: #1 closed → V3 done (no comments). Guards: G1 5/20, G2 5/7 (11-03 ×3, 11-04 ×2), G3 2/3 (V6, V16), G4 2 task commits, G6 no PAUSE; G5 fails: V7 waits on V6 #3 review, V8/V12/V13/V15 wait on V4 #2 (still open), V9/V11 on later steps. |
 | 2026-11-06 | V6 | done | CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Interactive: Jim approved #3 in chat, closed on his behalf; lazy follow to re-check in V10. V7 now eligible |
 | 2026-11-06 | V4 | done | CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Interactive: Jim confirmed, #2 closed on his behalf; V8, V12, V13 now eligible (V15 after V8) |
+| 2026-11-06 | V4 | note | CLAUDE_BACKLOG.md, .claude-runs/ledger.md | Interactive: Jim picked grove leads (Augustine / Gregory of Nyssa / Chrysostom), posted on #2 and in Notes from Jim; contemporary targets still open |
