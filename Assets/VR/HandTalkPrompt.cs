@@ -152,6 +152,26 @@ public class HandTalkPrompt : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Builds the Talk button now if none is assigned, and returns its canvas. Used by V7's
+    /// editor menu so the canvas exists in the scene and Meta's "Add Poke/Ray Interaction to
+    /// Canvas" quick actions can be applied to it. At run time Awake does the same.
+    /// </summary>
+    public Canvas EnsureCanvas()
+    {
+        if (npc == null) npc = GetComponentInParent<PhilosopherNPC>();
+        if (walker == null) walker = GetComponentInParent<PhilosopherWalker>();
+        if (canvas == null)
+        {
+            BuildButton();
+            canvas.transform.position = transform.position + Vector3.up * heightAboveHead;
+        }
+        if (button == null) button = canvas.GetComponentInChildren<Button>(true);
+        if (label == null && button != null) label = button.GetComponentInChildren<Text>(true);
+        if (label != null) label.text = string.Format(labelFormat, DisplayName());
+        return canvas;
+    }
+
     // ---------------------------------------------------------------- internals
 
     private bool ShouldShow()
