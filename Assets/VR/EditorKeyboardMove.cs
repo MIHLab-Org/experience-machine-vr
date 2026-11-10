@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 /// <summary>
 /// EDITOR ONLY: keyboard walking for testing the VR scene without a headset. Never compiled into
@@ -10,6 +11,9 @@ using UnityEngine.InputSystem;
 ///   W A S D        walk (relative to where the headset camera looks)
 ///   Left / Right   turn
 ///   Shift          walk faster
+///   E              talk to the philosopher in front of you (PhilosopherNPC's own key)
+///   Space          Continue (the dialogue panel's Continue button)
+///   1 - 9          pick that dialogue option, counted from the top
 ///
 /// No setup: after each scene loads it attaches itself to the camera rig (Meta's OVRCameraRig,
 /// or the object tagged Player) and keeps the rig on the NavMesh or the ground. If the rig has a
@@ -104,6 +108,8 @@ public class EditorKeyboardMove : MonoBehaviour
         Keyboard kb = Keyboard.current;
         if (kb == null) return;
 
+        HandleDialogueKeys(kb);
+
         float turn = (kb.rightArrowKey.isPressed ? 1f : 0f) - (kb.leftArrowKey.isPressed ? 1f : 0f);
         if (turn != 0f) transform.Rotate(0f, turn * TurnSpeed * Time.deltaTime, 0f, Space.World);
 
@@ -124,6 +130,36 @@ public class EditorKeyboardMove : MonoBehaviour
 
         if (TryGetComponent(out CharacterController cc) && cc.enabled) cc.Move(target - transform.position);
         else transform.position = target;
+    }
+
+    // ---------------------------------------------------------------- dialogue keys (Editor only)
+    // In VR_Slice the Yarn LineAdvancer ignores the keyboard (so a press on the Quest never
+    // advances two lines). These keys stand in for poking the panel while testing without a
+    // headset; they press the same Continue button and option items a hand would.
+
+    private static readonly Key[] OptionKeys =
+        { Key.Digit1, Key.Digit2, Key.Digit3, Key.Digit4, Key.Digit5, Key.Digit6, Key.Digit7, Key.Digit8, Key.Digit9 };
+
+    private void HandleDialogueKeys(Keyboard kb)
+    {
+        var options = FindObjectsByType<Yarn.Unity.OptionItem>(FindObjectsInactive.Exclude)
+            .Where(o => o.isActiveAndEnabled && o.interactable)
+            .OrderBy(o => o.transform.GetSiblingIndex())
+            .ToList();
+
+        for (int i = 0; i < OptionKeys.Length; i++)
+        {
+            if (!kb[OptionKeys[i]].wasPressedThisFrame) continue;
+            if (i < options.Count) options[i].InvokeOptionSelected();
+            return;
+        }
+
+        if (!kb.spaceKey.wasPressedThisFrame || options.Count > 0) return;
+
+        var panel = FindAnyObjectByType<WorldSpaceDialoguePanel>(FindObjectsInactive.Exclude);
+        if (panel != null) { panel.Continue(); return; }
+        var runner = FindAnyObjectByType<Yarn.Unity.DialogueRunner>(FindObjectsInactive.Exclude);
+        if (runner != null && runner.IsDialogueRunning) runner.RequestNextLine();
     }
 
     private Vector3 Ground(Vector3 p)
