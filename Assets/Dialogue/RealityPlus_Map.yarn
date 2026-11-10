@@ -117,7 +117,7 @@ Socrates: To the east lies Value Theory, where we ask what is good, what is righ
 Socrates: Over there to the west lies Science, Logic, and Mathematics, where we ask about physics, computers, and probability, and what tell us.
 Socrates: Most people arrive carrying one question that troubles them. A singer once put it simply. Is this the real life, or is it just fantasy?
 Socrates: My task is to help you discover what KIND of question you are really asking. Then I will send you to the people who can test it.
-<<jump Hub_Question>>
+<<jump Contest_Question>>
 ===
 
 title: Talk_Socrates
