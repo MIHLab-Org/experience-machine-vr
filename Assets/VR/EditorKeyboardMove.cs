@@ -15,12 +15,22 @@ using UnityEngine.InputSystem;
 /// or the object tagged Player) and keeps the rig on the NavMesh or the ground. If the rig has a
 /// CharacterController it moves through it. While WalkAlongMover is carrying the player it
 /// stays out of the way unless a key is pressed.
+///
+/// Eye height: with no headset the tracked head sits at the rig's feet (0 m), so the camera is
+/// at ground level and slopes put it inside the terrain, which looks like falling through the
+/// floor. While no XR device is active, the rig's TrackingSpace is lifted to a standing eye
+/// height (EditorEyeHeight); as soon as a headset becomes active (Link) it is put back at 0.
+/// Meta's FirstPersonLocomotor then sizes its body capsule from that height as usual.
 /// </summary>
 public class EditorKeyboardMove : MonoBehaviour
 {
     private const float WalkSpeed = 2.0f;
     private const float FastSpeed = 5.0f;
     private const float TurnSpeed = 90f; // degrees per second
+    private const float EditorEyeHeight = 1.6f; // metres, used only while no headset is active
+
+    private Transform trackingSpace;
+    private bool eyeLifted;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void Init()
@@ -58,8 +68,39 @@ public class EditorKeyboardMove : MonoBehaviour
         return player != null ? player.transform : null;
     }
 
+    private void Start()
+    {
+        trackingSpace = FindChild(transform, "TrackingSpace");
+        ApplyEditorEyeHeight();
+    }
+
+    private static Transform FindChild(Transform root, string name)
+    {
+        foreach (Transform c in root.GetComponentsInChildren<Transform>(true))
+            if (c.name == name) return c;
+        return null;
+    }
+
+    private void ApplyEditorEyeHeight()
+    {
+        if (trackingSpace == null) return;
+        bool headset = UnityEngine.XR.XRSettings.isDeviceActive;
+        if (!headset && !eyeLifted)
+        {
+            trackingSpace.localPosition += Vector3.up * EditorEyeHeight;
+            eyeLifted = true;
+            Debug.Log($"[EditorKeyboardMove] No headset active: view lifted to {EditorEyeHeight} m eye height (Editor only).", this);
+        }
+        else if (headset && eyeLifted)
+        {
+            trackingSpace.localPosition -= Vector3.up * EditorEyeHeight;
+            eyeLifted = false;
+        }
+    }
+
     private void Update()
     {
+        ApplyEditorEyeHeight();
         Keyboard kb = Keyboard.current;
         if (kb == null) return;
 
