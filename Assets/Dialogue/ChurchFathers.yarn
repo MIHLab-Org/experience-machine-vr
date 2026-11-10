@@ -58,3 +58,114 @@ Socrates: Would that virtual tree be a real object?
     Socrates: Then tell me what troubles you, and we will find the right grove for it.
     <<jump Hub_Question>>
 ===
+
+title: Talk_GregoryOfNyssa
+position: 7000,1602
+tags: npc contest
+area: Metaphysics
+speaker: Gregory
+---
+<<if $came_from == "Socrates">>
+    Gregory: Socrates tells me you think a virtual tree is not real. Then let us find out what a real tree is made of.
+<<elseif $came_from == "John Chrysostom">>
+    Gregory: My friend John sent you to ask what is real enough to be good. That is my question too. Start with a tree.
+<<else>>
+    Gregory: Welcome. I am Gregory, bishop of Nyssa in Cappadocia. I spend my days asking what things are made of.
+<<endif>>
+Gregory: Take away a tree's colour. Then its shape. Then its size, its weight, the way it resists your hand.
+Gregory: What is left over, once every quality is gone?
+-> Some kind of stuff underneath.
+    Gregory: That is what most people say. A hidden stuff that holds the qualities up, like a peg holds a cloak.
+    Gregory: But try to think of that stuff without any quality at all. No colour, no shape, no weight. You find nothing to think.
+-> Nothing at all.
+    Gregory: Yes. I think so too, and it surprised me when I first saw it.
+Gregory: Here is my view. A body is not a lump of hidden stuff wearing qualities. It is the qualities themselves, meeting in one place.
+Gregory: And each quality is something the mind can grasp. Colour, shape, weight: each is a kind of thought, before it is a thing.
+Gregory: So now look again at Socrates' virtual tree. It has colour. It has shape. It stands in its place and you can walk round it.
+Gregory: If a tree is a meeting of qualities, why would the virtual one be less real?
+-> Because some qualities are missing. You can't lean on it.
+    Gregory: Good. Then the question is not whether it is real, but how much of a tree it is. A tree with no weight is a thinner thing.
+    Gregory: Michael Heim has thought hard about what virtual things lack, and what they have. Walk with me to him.
+    <<handoff "Michael Heim">>
+-> It isn't less real. Its qualities are really there.
+    Gregory: Careful. You have just argued for something many people would laugh at. I do not laugh.
+    Gregory: Michael Heim takes virtual worlds seriously too, in his own way. Walk with me to him, and test the idea on him.
+    <<handoff "Michael Heim">>
+-> How could I even know which qualities are really there?
+    Gregory: Ah. Now you are asking how we know, not what exists. That belongs to the next grove.
+    Gregory: Augustine fought the doubters of his day on exactly that ground. Walk with me to him.
+    <<handoff "Augustine">>
+===
+
+title: Talk_Augustine
+position: 7400,1602
+tags: npc contest
+area: Epistemology
+speaker: Augustine
+---
+<<if $came_from == "Socrates">>
+    Augustine: Socrates says you do not know whether the virtual tree is real. Good. I spent years not knowing things like that.
+<<elseif $came_from == "Gregory of Nyssa">>
+    Augustine: Gregory sent you to ask how you could know which qualities are there. A fair question. Let us start further back.
+<<else>>
+    Augustine: Welcome. I am Augustine, from North Africa. As a young man the doubters nearly convinced me that nothing can be known.
+<<endif>>
+Augustine: The doubters said: your senses can deceive you. Dreams feel real. So you can never be sure of anything.
+Augustine: Suppose they are right about the tree. Suppose it is a dream, or a machine's picture. Now answer me one thing.
+Augustine: While you are being deceived, who is it that is being deceived?
+-> I am.
+    Augustine: Exactly. If I am deceived, then I exist. Nobody can be fooled who is not there to be fooled.
+-> Maybe nobody. Maybe that's an illusion too.
+    Augustine: Then who is having the illusion? You cannot doubt without a doubter. The doubt itself proves you are here.
+Augustine: So some knowledge survives any doubt. I know that I exist. I know that the tree seems green to me, even if it is not a tree at all.
+Augustine: And I know that I want to know the truth. No machine can make that false.
+Augustine: So even if all this is a simulation, why does that not leave you with nothing?
+-> Because I still know I exist. But not what world I'm in.
+    Augustine: Well put. You are certain of yourself and uncertain of the world. Then how should you reason about the world?
+    Augustine: Nick Bostrom asks whether we could know we are not simulated. Walk with me to him.
+    <<handoff "Nick Bostrom">>
+-> Because knowing that much is enough to start reasoning.
+    Augustine: Yes. From one sure point you can weigh the rest, even when you cannot be certain of it.
+    Augustine: Nick Bostrom weighs the odds that this world is a simulation. Walk with me to him, and check his sums.
+    <<handoff "Nick Bostrom">>
+-> If I can't know what's real, does it even matter?
+    Augustine: Now you have stopped asking what you know and started asking what is worth caring about. That belongs to the next grove.
+    Augustine: John Chrysostom preached on that every week in Antioch. Walk with me to him.
+    <<handoff "John Chrysostom">>
+===
+
+title: Talk_Chrysostom
+position: 7800,1602
+tags: npc contest
+area: WellBeing
+speaker: Chrysostom
+---
+<<if $came_from == "Socrates">>
+    Chrysostom: Socrates tells me you asked "Who cares?" about his tree. A good question, if you mean it. I asked it about gold.
+<<elseif $came_from == "Augustine">>
+    Chrysostom: Augustine sent you to ask whether it matters what is real. It matters more than anything. Let me tell you why.
+<<else>>
+    Chrysostom: Welcome. I am John, a preacher in Antioch. They call me Chrysostom, "golden mouth", because I never stop talking.
+<<endif>>
+Chrysostom: In my city the rich wore silk and ate from silver, while beggars lay at their gates. Everyone thought the rich were the lucky ones.
+Chrysostom: But think of actors in a theatre. One plays a king and wears a crown. When the play ends, he takes the crown off and goes home poor.
+Chrysostom: Wealth, pleasure, a good name: I think these are costumes. They feel like having a good life. They are not the good life.
+Chrysostom: So you ask who cares whether the tree is virtual. If it feels the same, what would you be missing?
+-> Nothing, if I'm happy.
+    Chrysostom: Then you are the man in the crown, sure he is a king. How you feel is not the measure of how you live.
+-> The difference between feeling good and being good.
+    Chrysostom: Yes. A beggar who is just and patient is richer than the man who feasts. That is not a feeling. It is what he is.
+Chrysostom: So I do not ask whether your life feels good. I ask what kind of person it is making you.
+Chrysostom: Why should that matter more than how life feels from the inside?
+-> Because a pleasant illusion isn't a good life.
+    Chrysostom: Then you are ready for a hard question. Robert Nozick asks whether you would plug into a machine of perfect pleasure. Walk with me to him.
+    <<handoff "Robert Nozick">>
+-> Maybe it doesn't. Maybe feeling good is enough.
+    Chrysostom: Many in Antioch agreed with you, and stopped coming to church. Let us test it properly.
+    Chrysostom: Robert Nozick built a thought experiment for exactly your view. Walk with me to him, and see if you still hold it.
+    <<handoff "Robert Nozick">>
+-> Then what is real enough to be good?
+    Chrysostom: That is no longer a question about value. It is a question about what exists. That belongs to the next grove.
+    Chrysostom: Gregory of Nyssa thinks hard about what things are made of. Walk with me to him.
+    <<handoff "Gregory of Nyssa">>
+===
