@@ -1,0 +1,32 @@
+You are working in my Unity 6 project "The Experience Machine" (Quest VR, hand tracking, Meta XR SDK, Yarn Spinner). The repo is MIHLab-Org/experience-machine-vr. Use the GitHub MCP tools to read and comment on issues.
+
+RULES (apply to everything below)
+- Work only in Assets/Scenes/VR_Slice.unity. Never open, edit or save Assets/Scenes/SampleScene.unity, which is the flat-screen version.
+- Change the scene only through the Editor (components, Inspector values, Meta quick actions, MIHLab menus). Never edit .unity or .prefab files as text.
+- Never delete assets. Never change ProjectSettings or Packages. Never edit .cs or .yarn files; if a task needs code or dialogue, say so in your report and skip it.
+- Never close, reopen, relabel or retitle an issue. I approve work by closing the issue myself.
+- End every GitHub comment with this exact line: "— Posted by Unity AI Assistant"
+- Nothing on the Meta developer dashboard, Devpost, YouTube or any account; no APK builds; nothing that needs the headset.
+- Stop at the first step that fails, and tell me which one and why.
+
+PART 1: Fix the scene
+0. Make sure VR_Slice is the active scene. If the open scene has unsaved changes, stop and ask me first.
+1. "TerrainObjects/Terrain" and "RealityPlus Map/Region - Metaphysics and Epistemology/Area - Epistemology" have PhilosopherWalker + NavMeshAgent on them by mistake. For each one, report the PhilosopherWalker fields philosopherId, joinNode, callOutNode, walkingNodes, arrivalNode, destination and sitSpot, then remove those two components. Leave everything else alone.
+2. Socrates (root object): don't add PhilosopherNPC. If both PhilosopherWalker and DialogueTrigger are enabled, disable DialogueTrigger. Assign any empty HandTalkPrompt field (walker, dialogueRunner, canvas, button, label) from his own components, his "TalkPrompt Canvas" child, or the DialogueRunner under "Dialogue System". If NavMeshAgent and CharacterController are both active, flag it but don't change it.
+3. On every PhilosopherNPC, PhilosopherWalker, DialogueTrigger and HandTalkPrompt, assign dialogueRunner where it's empty. List any PhilosopherNPC whose startNode is empty, or still "Talk_Descartes" on an object that isn't Descartes. Don't change those.
+4. Save VR_Slice. Clear the Console, play for 20 seconds, stop, and note every error or exception.
+
+PART 2: Do the Editor issues
+5. Read CLAUDE_BACKLOG.md (Track 0 and the W table). With the GitHub tools, list the open issues labelled "jim" or "local".
+6. An issue is eligible only if ALL of these are true:
+   - its backlog task is Editor work in VR_Slice: placing or converting NPCs, adding components, Meta quick actions (Add Poke / Add Ray Interaction to a canvas), running MIHLab menus, baking the NavMesh, or a Play-mode check in the Editor;
+   - every task in its "Depends on" column is "done";
+   - it doesn't need the headset, an account, a build, or new code or dialogue.
+   For a task that's partly eligible (e.g. V10: the menus and NavMesh bake are, the headset play-through isn't), do only the Editor part.
+7. Take the eligible issues one at a time, lowest number first. For each one:
+   a. Read the issue and all its comments. Do what the task row and my comments ask. If my newest comment asks for changes, do those.
+   b. Save VR_Slice. Clear the Console, play for 20 seconds, stop. If there are new errors or exceptions, make one fix attempt. If they're still there, stop: comment on the issue with the errors, and don't start the next issue.
+   c. Comment on the issue: what you changed (object names and components), what you checked and the console result, what I still need to do (e.g. test on the headset), and the closing line from the rules.
+8. Stop after 3 issues, or sooner if none are eligible.
+
+REPORT: a short list with Part 1's changes and the field values from step 1; each issue you did, skipped (with the reason) or stopped on; and anything I must do myself.
