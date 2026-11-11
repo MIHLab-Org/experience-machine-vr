@@ -21,6 +21,9 @@
 //   Talk_GregoryOfNyssa  Start Node of the Gregory of Nyssa NPC (V18)
 //   Talk_Augustine       Start Node of the Augustine NPC (V19)
 //   Talk_Chrysostom      Start Node of the John Chrysostom NPC (V20)
+//   Slice_End            V26 ending. Jim's Done_Metaphysics, Done_Probability and Done_WellBeing
+//                        jump here once per contest route (when $contest_answer is set).
+//   Contest_Return       Socrates asks again, after the player walks back to him from Slice_End.
 //
 // <<handoff NAME>> (YarnWalkCommands, W3) needs the speaker to be a PhilosopherWalker
 // (Socrates converted with MIHLab > Convert selected NPC to Walker, task W5) and the
@@ -36,6 +39,7 @@ speaker: Socrates
 ---
 <<declare $came_from = "">>
 <<declare $contest_answer = "">>
+<<declare $slice_ended = false>>
 Socrates: Before I send you anywhere, look at this tree beside us. Bark, leaves, the shade it throws.
 Socrates: Now suppose someone built a tree exactly like it inside a computer, and you stood under it wearing a headset.
 Socrates: Would that virtual tree be a real object?
@@ -168,4 +172,48 @@ Chrysostom: Why should that matter more than how life feels from the inside?
     Chrysostom: That is no longer a question about value. It is a question about what exists. That belongs to the next grove.
     Chrysostom: Gregory of Nyssa thinks hard about what things are made of. Walk with me to him.
     <<handoff "Gregory of Nyssa">>
+===
+
+title: Slice_End
+position: 8200,1602
+tags: contest end
+area: Hub
+---
+<<set $slice_ended to true>>
+<<if $contest_answer == "not_real">>
+    You told Socrates the virtual tree was not real. Gregory of Nyssa asked what any tree is made of, if not the qualities your mind takes in.
+<<elseif $contest_answer == "dont_know">>
+    You told Socrates you did not know. Augustine showed you the one thing a simulation cannot take from you: you are there to be fooled.
+<<else>>
+    You asked Socrates who cares. John Chrysostom asked whether a life that only feels good is a good life.
+<<endif>>
+Socrates' question had three doors: what is real, how we can know it, and why it should matter. You have walked through one of them.
+-> Walk me back to Socrates. I want to try another answer.
+    <<walk_to Socrates Contest_Return>>
+-> I'll stay and look around.
+    Then the groves are yours. Every philosopher here has a question waiting.
+===
+
+title: Contest_Return
+position: 8600,1602
+tags: contest hub
+area: Hub
+speaker: Socrates
+---
+<<set $slice_ended to false>>
+Socrates: Back again! One door opened. Which answer will you test this time?
+-> It's not real.
+    <<set $contest_answer to "not_real">>
+    Socrates: Then ask Gregory of Nyssa what a tree is made of. Walk with me.
+    <<handoff "Gregory of Nyssa">>
+-> I don't know.
+    <<set $contest_answer to "dont_know">>
+    Socrates: Then ask Augustine what survives every doubt. Walk with me.
+    <<handoff "Augustine">>
+-> Who cares?
+    <<set $contest_answer to "who_cares">>
+    Socrates: Then ask John Chrysostom what is worth having. Walk with me.
+    <<handoff "John Chrysostom">>
+-> Nothing for now.
+    Socrates: Then walk on. The questions will find you.
 ===

@@ -587,6 +587,9 @@ position: 7602,1827
 tags: done
 area: Metaphysics
 ---
+<<if $contest_answer != "" and not $slice_ended>>
+    <<jump Slice_End>>
+<<endif>>
 <<if $playtest>>
     <<jump Menu_Metaphysics>>
 <<else>>
@@ -1796,6 +1799,9 @@ position: 330,1377
 tags: done
 area: Probability
 ---
+<<if $contest_answer != "" and not $slice_ended>>
+    <<jump Slice_End>>
+<<endif>>
 <<if $playtest>>
     <<jump Menu_Probability>>
 <<else>>
@@ -1928,6 +1934,9 @@ position: 6611,1377
 tags: done
 area: WellBeing
 ---
+<<if $contest_answer != "" and not $slice_ended>>
+    <<jump Slice_End>>
+<<endif>>
 <<if $playtest>>
     <<jump Menu_WellBeing>>
 <<else>>
