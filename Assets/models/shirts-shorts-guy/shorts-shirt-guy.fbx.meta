@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Ch42_Body
-    second: {fileID: 2100000, guid: 24cfc7a69edf3ae4e8f8e53c3c20c552, type: 2}
+    second: {fileID: 2100000, guid: 3aa483b4f32ee0e4f99b97cbf6e0077a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Ch42_Hair
-    second: {fileID: 2100000, guid: c522ec7c62be0c145bc320ad11705a67, type: 2}
+    second: {fileID: 2100000, guid: c47da26f053bf1247ba4c67750e54a2e, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
