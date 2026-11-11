@@ -54,18 +54,39 @@ Required structure (node names use the file's key, here `Kant`):
    `Converse_Kant_Duty` and `Converse_Kant_Doubt`. In each one the philosopher
    takes the player's view seriously, states it at its strongest, and then
    presses on it with the best objection from their own position. Each ends
-   with **Choice 2**: concede, push back, or ask a question. All of these lead
-   on to step 3, either directly or through one short follow-up node.
+   with **Choice 2**: for example concede, push back, or ask a question.
+   **Each Choice 2 option jumps to its own follow-up node** (for example
+   `Converse_Kant_Duty_Concede`, `Converse_Kant_Duty_PushBack`), in which the
+   philosopher responds to *that* move with two to four lines of real
+   substance: a new consideration, a counterexample, or a concession of
+   their own. Only after those follow-up nodes do the paths rejoin at step 3.
 3. **`Converse_Kant_Turn`**: the philosopher turns the argument on
    themselves. Present the strongest objection to *their own* view, the one
    their best critics make, and let them answer it honestly. Name the critic if
    that critic is another philosopher in the game (see the roster). Otherwise
-   say "my critics". End with **Choice 3**.
+   say "my critics". End with **Choice 3**: two or three verdicts the player
+   could reach. **Each verdict jumps to its own short node** in which the
+   philosopher answers that verdict specifically, before all of them jump to
+   the Close.
 4. **`Converse_Kant_Close`**: a short wrap-up that names what is still open
    and leaves the player with a question to carry. The last line of the node
    must be the handoff jump from the roster, for example `<<jump Talk_Kant>>`.
 
-Size: 40 to 80 lines in total across 5 to 9 nodes.
+### Branching rule (most important)
+
+- **No two options in the same choice may jump to the same node.** Every
+  option leads to a node written for that option.
+- A different option must get a different *response*, not the same
+  response with one line changed. If two options would get the same reply,
+  merge them into one option or rewrite one of them.
+- Paths may rejoin in exactly two places: at `Converse_<Key>_Turn`, after the
+  Choice 2 follow-up nodes, and at `Converse_<Key>_Close`, after the Choice 3
+  verdict nodes.
+- Before you output the file, check every choice: list each option's target
+  node and confirm that no target repeats within a choice.
+
+Size: 70 to 120 lines in total across 10 to 18 nodes. Any single path through
+the conversation should take a player about 3 to 5 minutes.
 
 ## Voice and content
 
@@ -158,12 +179,34 @@ speaker: Example
 ---
 Example: The strongest version of your view. Then my objection.
 -> I concede the point.
-    <<jump Converse_Example_Turn>>
+    <<jump Converse_Example_First_Concede>>
 -> I still disagree, and here is why.
-    Example: A one-line reply.
-    <<jump Converse_Example_Turn>>
+    <<jump Converse_Example_First_PushBack>>
+===
+
+title: Converse_Example_First_Concede
+tags: converse
+area: Normative
+speaker: Example
+---
+Example: A response written for someone who conceded.
+Example: A further consideration that the concession opens up.
+<<jump Converse_Example_Turn>>
+===
+
+title: Converse_Example_First_PushBack
+tags: converse
+area: Normative
+speaker: Example
+---
+Example: A response written for someone who pushed back.
+Example: A counterexample or concession aimed at that reply.
+<<jump Converse_Example_Turn>>
 ===
 ```
+
+Note how the two options above lead to two different nodes, and the paths
+rejoin only at `Converse_Example_Turn`.
 
 ---
 
