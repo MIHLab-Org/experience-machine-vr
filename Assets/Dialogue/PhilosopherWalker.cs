@@ -528,6 +528,15 @@ public class PhilosopherWalker : MonoBehaviour
             return;
         }
         Halt();
+
+        // Back at his post: he can be talked to again (Talk button). If he greets on approach,
+        // wait until the player has moved on first, so he doesn't greet them again at once.
+        if (!awaitingHandoff && player != null &&
+            (!joinOnApproach || FlatDistance(player.position, transform.position) > triggerRadius + 2f))
+        {
+            if (Active == this) Active = null;
+            EnterState(WalkState.Idle);
+        }
     }
 
     private void OnPlayerReachedGoal()
@@ -587,7 +596,11 @@ public class PhilosopherWalker : MonoBehaviour
 
     private WalkState ResumeState()
     {
-        return handoffTarget != null ? WalkState.HandingOff : WalkState.Walking;
+        if (handoffTarget != null) return WalkState.HandingOff;
+        // Nowhere to walk (no Destination, no walk_to): finish instead of standing in Walking,
+        // which would hide his Talk button and the wrist Walk button. TickDone sends him home.
+        if (CurrentGoal() == null) return WalkState.Done;
+        return WalkState.Walking;
     }
 
     /// <summary>Starts a node and waits for it. Returns false if there was nothing to run.</summary>

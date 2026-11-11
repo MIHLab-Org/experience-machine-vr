@@ -125,6 +125,9 @@ position: 6136,1152
 tags: hub
 area: Hub
 ---
+<<if $slice_ended>>
+    <<jump Contest_Return>>
+<<endif>>
 <<if not $met_socrates>>
     <<jump Map_Start>>
 <<endif>>
@@ -467,6 +470,9 @@ area: Hub
     A signpost glows. APPLIED ETHICS, in the eastern region.
 <<elseif $route_to == "Political">>
     A signpost glows. SOCIAL AND POLITICAL PHILOSOPHY, in the eastern region.
+<<endif>>
+<<if $contest_answer != "" and not $slice_ended>>
+    <<jump Slice_End>>
 <<endif>>
 <<if $playtest>>
     -> Follow the signpost.

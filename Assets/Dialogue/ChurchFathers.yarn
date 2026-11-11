@@ -189,7 +189,7 @@ area: Hub
 <<endif>>
 Socrates' question had three doors: what is real, how we can know it, and why it should matter. You have walked through one of them.
 -> Walk me back to Socrates. I want to try another answer.
-    <<walk_to Socrates Contest_Return>>
+    <<handoff Socrates>>
 -> I'll stay and look around.
     Then the groves are yours. Every philosopher here has a question waiting.
 ===

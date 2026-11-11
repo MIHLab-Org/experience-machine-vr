@@ -14215,7 +14215,7 @@ MonoBehaviour:
   revisitNode: Talk_Socrates
   playerOverride: {fileID: 1966508589}
   triggerRadius: 3
-  destination: {fileID: 1296193215}
+  destination: {fileID: 0}
   arriveDistance: 3
   sitSpot: {fileID: 1296193215}
   agent: {fileID: 735400820}
@@ -14237,7 +14237,7 @@ MonoBehaviour:
   sitDownTriggerParam: SitDown
   standUpDuration: 1.4
   sitDownDuration: 1.4
-  returnHomeAfterHandoff: 0
+  returnHomeAfterHandoff: 1
   showDebug: 0
 --- !u!195 &735400820
 NavMeshAgent:
@@ -30752,7 +30752,7 @@ MonoBehaviour:
   walkingNodes: []
   arrivalNode: 
   revisitNode: 
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
   triggerRadius: 3
   destination: {fileID: 0}
   arriveDistance: 3
@@ -30776,7 +30776,7 @@ MonoBehaviour:
   sitDownTriggerParam: SitDown
   standUpDuration: 1.4
   sitDownDuration: 1.4
-  returnHomeAfterHandoff: 0
+  returnHomeAfterHandoff: 1
   showDebug: 0
 --- !u!195 &1658617863
 NavMeshAgent:
@@ -32191,7 +32191,7 @@ MonoBehaviour:
   walkingNodes: []
   arrivalNode: 
   revisitNode: 
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
   triggerRadius: 3
   destination: {fileID: 0}
   arriveDistance: 3
@@ -32215,7 +32215,7 @@ MonoBehaviour:
   sitDownTriggerParam: SitDown
   standUpDuration: 1.4
   sitDownDuration: 1.4
-  returnHomeAfterHandoff: 0
+  returnHomeAfterHandoff: 1
   showDebug: 0
 --- !u!195 &1706056660
 NavMeshAgent:
@@ -35192,7 +35192,7 @@ MonoBehaviour:
   sitDownTriggerParam: SitDown
   standUpDuration: 1.4
   sitDownDuration: 1.4
-  returnHomeAfterHandoff: 0
+  returnHomeAfterHandoff: 1
   showDebug: 0
 --- !u!195 &1829589921
 NavMeshAgent:
@@ -37878,7 +37878,7 @@ MonoBehaviour:
   walkingNodes: []
   arrivalNode: 
   revisitNode: 
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
   triggerRadius: 3
   destination: {fileID: 0}
   arriveDistance: 3
@@ -37902,7 +37902,7 @@ MonoBehaviour:
   sitDownTriggerParam: SitDown
   standUpDuration: 1.4
   sitDownDuration: 1.4
-  returnHomeAfterHandoff: 0
+  returnHomeAfterHandoff: 1
   showDebug: 0
 --- !u!195 &1918555372
 NavMeshAgent:
