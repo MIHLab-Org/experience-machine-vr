@@ -146,7 +146,7 @@ public class WalkAlongMover : MonoBehaviour
     private void Update()
     {
         float dt = Time.deltaTime;
-        bool dialogue = dialogueRunner != null && dialogueRunner.IsDialogueRunning;
+        bool dialogue = dialogueRunner != null && dialogueRunner.IsDialogueRunning && !WalkingChatter.IsChatting; // W6: keep walking through chatter
         if (dialogueWasRunning && !dialogue && resumeAfterDialogue && stopped && !pointWalking) Resume();
         dialogueWasRunning = dialogue;
 

@@ -340,3 +340,83 @@ use the named section where one is listed.
 | Mozi | https://plato.stanford.edu/entries/mohism/ |
 | Hobbes | https://plato.stanford.edu/entries/hobbes-moral/ |
 | Rawls | https://plato.stanford.edu/entries/rawls/ |
+
+---
+
+# Part 2: Walking dialogue (chatter while walking)
+
+Use this part only when asked for a **walking** file, for example: **"Following
+Part 2 of the writing brief, write Walk_Augustine_Bostrom.yarn."**
+
+## What it is
+
+When a philosopher walks the player from one place to another, the game now
+plays a short conversation **while they keep walking**. The lines appear one at
+a time on the panel and advance by themselves every few seconds. The player
+does not press anything and does not stop. If the player stops walking, the
+lines pause. When they arrive, any lines still left are cut off, and the next
+philosopher takes over.
+
+So walking dialogue is **filler with substance**: the walker talking as you go,
+the way Socrates talks with Phaedrus on the way to the plane tree. It is not a
+debate, and it asks nothing of the player.
+
+## Rules (in addition to the Yarn rules in Part 1)
+
+- **One node per file**, named exactly as in the table below, for example
+  `Walk_Augustine_Bostrom`, with this header:
+
+  ```
+  title: Walk_Augustine_Bostrom
+  tags: walk
+  speaker: Augustine
+  ---
+  ```
+
+- **Only the walking philosopher speaks**, using the speaker name in the table.
+  The destination philosopher is not present yet.
+- **No options.** No `->` lines at all, and no commands of any kind, not even
+  `<<jump>>`.
+- **8 to 12 spoken lines**, each **at most 20 words**. Shorter is better: the
+  player reads while walking.
+- **Front-load it.** A walk can end early. Lines 1 to 4 must make sense on
+  their own; later lines add depth.
+- **What to talk about:**
+  - The walker's own ideas, in their own voice, building a bridge to where the
+    player is going: why the next philosopher's question matters, from the
+    walker's point of view.
+  - The forest around you: trees, light, paths. The game's opening question is
+    whether a virtual tree is real, so the forest is a natural prop.
+  - At most one line about the player's earlier answer to Socrates, kept general
+    ("You said you were unsure...").
+- **Do not** summarise the destination philosopher's argument; that is their job
+  when you arrive. Point toward the question instead.
+- Accuracy, quotation and anachronism rules from Part 1 all apply. Historical
+  figures reason from their own commitments; the church fathers speak as
+  Christian thinkers of their time.
+- **Before you output**, check: one node, the right title, `tags: walk`, no `->`,
+  no `<<`, 8 to 12 spoken lines, none over 20 words.
+
+## The contest route walks
+
+Write these first, in this order. "Return" walks lead back to Socrates after the
+slice ending.
+
+| File and node name | Walker (speaker name) | From grove | Heading to | Bridge to make |
+|---|---|---|---|---|
+| Walk_Socrates_GregoryOfNyssa | Socrates | Socrates' clearing | Gregory of Nyssa, Metaphysics | from "is the virtual tree real?" to what it is for something to be |
+| Walk_Socrates_Augustine | Socrates | Socrates' clearing | Augustine, Epistemology | from "I don't know" to how we know anything at all |
+| Walk_Socrates_Chrysostom | Socrates | Socrates' clearing | John Chrysostom, Values | from "who cares?" to what makes a life go well |
+| Walk_GregoryOfNyssa_Heim | Gregory | Metaphysics | Michael Heim | from creation and the reality of what God makes to whether made worlds are real |
+| Walk_Augustine_Bostrom | Augustine | Epistemology | Nick Bostrom, Probability | from "if I am mistaken, I exist" to reasoning about odds when certainty fails |
+| Walk_Chrysostom_Nozick | Chrysostom | Values | Robert Nozick, Well-Being | from virtue and the good life to whether pleasant illusions are enough |
+| Walk_Heim_Socrates | Heim | Metaphysics | back to Socrates | what the player has seen about virtual reality, to take back to Socrates |
+| Walk_Augustine_Socrates | Augustine | Epistemology | back to Socrates | the same, from Augustine |
+| Walk_Chrysostom_Socrates | Chrysostom | Values | back to Socrates | the same, from Chrysostom |
+
+Optional, for players who take a father's cross-grove suggestion:
+`Walk_GregoryOfNyssa_Augustine`, `Walk_Augustine_Chrysostom`,
+`Walk_Chrysostom_GregoryOfNyssa`.
+
+Save each file into `Assets/Dialogue/Walking/` with the node's name, for
+example `Walk_Augustine_Bostrom.yarn`.

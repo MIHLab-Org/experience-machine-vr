@@ -103,7 +103,7 @@ public class WalkStopButton : MonoBehaviour
 
     private bool ShouldShow()
     {
-        if (dialogueRunner != null && dialogueRunner.IsDialogueRunning) return false;
+        if (dialogueRunner != null && dialogueRunner.IsDialogueRunning && !WalkingChatter.IsChatting) return false;
         if (mover.IsMoving) { lastMovingTime = Time.time; return true; }
         // Stopped by the player while a walk is still waiting to go on.
         PhilosopherWalker walker = PhilosopherWalker.Active;

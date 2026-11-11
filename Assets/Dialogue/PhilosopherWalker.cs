@@ -133,6 +133,7 @@ public class PhilosopherWalker : MonoBehaviour
 
     private int checkpointIndex;
     private bool waitingForDialogue;
+    private string pendingNode; // W6: started once interrupted chatter has stopped
     private float dialogueGrace;
     private bool hasCalledOut;
     private bool revisitArmed;
@@ -214,7 +215,17 @@ public class PhilosopherWalker : MonoBehaviour
 
         TrackPlayer(dt);
 
-        if (waitingForDialogue && dialogueGrace <= 0f &&
+        // W6: a node that had to wait for walking chatter to stop.
+        if (pendingNode != null && dialogueRunner != null && !dialogueRunner.IsDialogueRunning)
+        {
+            string n = pendingNode;
+            pendingNode = null;
+            _ = dialogueRunner.StartDialogue(n);
+            Active = this;
+            dialogueGrace = DialogueGrace;
+        }
+
+        if (waitingForDialogue && pendingNode == null && dialogueGrace <= 0f &&
             (dialogueRunner == null || !dialogueRunner.IsDialogueRunning))
         {
             waitingForDialogue = false;
@@ -398,7 +409,7 @@ public class PhilosopherWalker : MonoBehaviour
         stoppedTimer = playerStopped ? stoppedTimer + dt : 0f;
         bool fellBehind = FlatDistance(transform.position, player.position) > fallBehindDistance;
 
-        if (cooldownTimer <= 0f && HasCheckpointLeft() && (stoppedTimer >= stoppedDwellTime || fellBehind))
+        if (cooldownTimer <= 0f && HasCheckpointLeft() && !WalkingChatter.IsChatting && (stoppedTimer >= stoppedDwellTime || fellBehind))
         {
             EnterState(WalkState.Checkpoint);
             stoppedTimer = 0f;
@@ -583,6 +594,23 @@ public class PhilosopherWalker : MonoBehaviour
     private bool RunNode(string node)
     {
         if (string.IsNullOrEmpty(node) || dialogueRunner == null) return false;
+
+        // W6: walking chatter never blocks a real node. Cut it short and start this one next frame.
+        if (WalkingChatter.IsChatting)
+        {
+            if (dialogueRunner.YarnProject != null &&
+                System.Array.IndexOf(dialogueRunner.YarnProject.NodeNames, node) < 0)
+            {
+                Debug.LogWarning($"[PhilosopherWalker] {name}: Yarn node '{node}' does not exist.", this);
+                return false;
+            }
+            WalkingChatter.Interrupt();
+            pendingNode = node;
+            Active = this;
+            waitingForDialogue = true;
+            dialogueGrace = DialogueGrace;
+            return true;
+        }
 
         if (!dialogueRunner.IsDialogueRunning)
         {
