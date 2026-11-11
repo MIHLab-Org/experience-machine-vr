@@ -9,8 +9,11 @@ Other sources to add to the same notebook:
 1. David Chalmers, *Reality+* (the chapters listed in the roster below).
 2. `RealityPlus_Map.txt`: a copy of the game's current dialogue. Each
    philosopher's existing node is in it (search for `title: Talk_Kant` and so on).
-3. Optional: a Stanford Encyclopedia of Philosophy entry for each philosopher,
-   so positions are stated accurately.
+3. The Stanford Encyclopedia of Philosophy (SEP) entries listed under
+   **Reference sources** at the end of this brief. Add each one with
+   NotebookLM's "Website" source option, pasting the URL. Adding only the
+   entries for the philosophers you are writing that day keeps the notebook
+   focused.
 
 ---
 
@@ -71,6 +74,12 @@ Size: 40 to 80 lines in total across 5 to 9 nodes.
   let them talk across time about one another, as in "Long before Hobbes, I...".
 - **Tie it to *Reality+*.** Use the chapter or chapters in the roster. Explain
   Chalmers's view in your own words.
+- **Check positions against the SEP.** For each philosopher, use the SEP
+  entry or entries listed under **Reference sources** as the authority on
+  what they held, alongside *Reality+*. Where the two differ, follow the SEP
+  on the philosopher's own view and *Reality+* on Chalmers's use of it. Where
+  the list says there is no SEP entry, rely on *Reality+* and keep claims about
+  the person modest. Paraphrase the SEP as well: do not copy its sentences.
 - **No long quotations.** At most one short phrase (under 15 words) quoted from
   *Reality+* or any other modern book. Paraphrase everything else. Short lines
   from public-domain historical texts are fine.
@@ -189,3 +198,44 @@ against Turing.
 
 Not included: Socrates and the three church fathers (Gregory of Nyssa,
 Augustine and John Chrysostom). Their contest-route dialogue is already written.
+
+---
+
+## Reference sources (Stanford Encyclopedia of Philosophy)
+
+Where the SEP has no entry on the person, the closest topic entry is given;
+use the named section where one is listed.
+
+| File key | SEP entries |
+|---|---|
+| Heim | No entry. Rely on *Reality+* ch. 6 and 10. |
+| Berkeley | https://plato.stanford.edu/entries/berkeley/ |
+| Plato | https://plato.stanford.edu/entries/plato/ |
+| Descartes | https://plato.stanford.edu/entries/descartes-epistemology/ |
+| Zhuangzi | https://plato.stanford.edu/entries/zhuangzi/ and https://plato.stanford.edu/entries/dreams-dreaming/ |
+| Moore | https://plato.stanford.edu/entries/moore/ |
+| Elisabeth | https://plato.stanford.edu/entries/elisabeth-bohemia/ |
+| Nagel | No entry on him. https://plato.stanford.edu/entries/consciousness/ |
+| Clark | No entry on him. https://plato.stanford.edu/entries/embodied-cognition/ (section 2.3, Extended Cognition) and https://plato.stanford.edu/entries/content-externalism/ |
+| Putnam | No entry on him. https://plato.stanford.edu/entries/content-externalism/ (Twin Earth) and https://plato.stanford.edu/entries/brain-vat/ |
+| Carnap | https://plato.stanford.edu/entries/carnap/ |
+| Anselm | https://plato.stanford.edu/entries/anselm/ and https://plato.stanford.edu/entries/ontological-arguments/ |
+| Leibniz | https://plato.stanford.edu/entries/leibniz-evil/ |
+| Narada | No entry. Rely on *Reality+* ch. 1. |
+| Turing | https://plato.stanford.edu/entries/turing/ |
+| Searle | https://plato.stanford.edu/entries/chinese-room/ |
+| Wheeler | https://plato.stanford.edu/entries/information-semantic/ (discusses his "it from bit") |
+| Russell | https://plato.stanford.edu/entries/russell/ and https://plato.stanford.edu/entries/russellian-monism/ |
+| Sellars | https://plato.stanford.edu/entries/sellars/ |
+| Galileo | https://plato.stanford.edu/entries/galileo/ |
+| Bostrom | No entry on him or the simulation argument. https://plato.stanford.edu/entries/brain-vat/ for the sceptical background; rely on *Reality+* ch. 5 for the argument itself. |
+| Boltzmann | https://plato.stanford.edu/entries/statphys-boltzmann/ |
+| Nozick | No entry on him. https://plato.stanford.edu/entries/well-being/ (section 4.1, the experience machine) and https://plato.stanford.edu/entries/hedonism/ |
+| Bentham | https://plato.stanford.edu/entries/bentham/ |
+| Kant | https://plato.stanford.edu/entries/kant-moral/ |
+| Aristotle | https://plato.stanford.edu/entries/aristotle-ethics/ |
+| Singer | No entry on him. https://plato.stanford.edu/entries/moral-animal/ |
+| Slater | No entry. https://plato.stanford.edu/entries/experimental-moral/ (VR versions of moral dilemmas); rely on *Reality+* ch. 19 and 11 for his experiments. |
+| Mozi | https://plato.stanford.edu/entries/mohism/ |
+| Hobbes | https://plato.stanford.edu/entries/hobbes-moral/ |
+| Rawls | https://plato.stanford.edu/entries/rawls/ |
