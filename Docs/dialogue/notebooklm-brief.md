@@ -6,9 +6,14 @@ Kant.yarn."** One philosopher per message keeps the output from being cut off.
 
 Other sources to add to the same notebook:
 
-1. David Chalmers, *Reality+* (the chapters listed in the roster below).
+1. David Chalmers's webpage and the table of contents of *Reality+*. The text
+   of the book is **not** in this notebook. Use the table of contents only to
+   see which chapter covers which topic.
 2. `RealityPlus_Map.txt`: a copy of the game's current dialogue. Each
    philosopher's existing node is in it (search for `title: Talk_Kant` and so on).
+   These nodes already put several of Chalmers's ideas into the philosophers'
+   mouths, and they are the best guide in this notebook to how the game uses
+   the book.
 3. The Stanford Encyclopedia of Philosophy (SEP) entries listed under
    **Reference sources** at the end of this brief. Add each one with
    NotebookLM's "Website" source option, pasting the URL. Adding only the
@@ -43,7 +48,7 @@ Required structure (node names use the file's key, here `Kant`):
 
 1. **`Converse_Kant`**: the entry node. The philosopher greets the player in
    character, raises the problem in their own terms and connects it to virtual
-   worlds as *Reality+* does. It ends with **Choice 1**: two or three options,
+   worlds. It ends with **Choice 1**: two or three options,
    each a different perspective on the problem.
 2. **One node per perspective**, for example `Converse_Kant_Outcomes`,
    `Converse_Kant_Duty` and `Converse_Kant_Doubt`. In each one the philosopher
@@ -72,16 +77,22 @@ Size: 40 to 80 lines in total across 5 to 9 nodes.
   ("If your senses could be fed by a machine, then by my method...") and never
   claims to know modern facts they could not have known. The game has always
   let them talk across time about one another, as in "Long before Hobbes, I...".
-- **Tie it to *Reality+*.** Use the chapter or chapters in the roster. Explain
-  Chalmers's view in your own words.
+- **Tie it to virtual worlds through the chapter's topic.** The roster gives
+  the *Reality+* chapters for each philosopher. Use the table of contents to
+  see what those chapters are about, and use the philosopher's existing node
+  in `RealityPlus_Map.txt` to see how the game already frames the question.
+  You do not have the book's text, so **do not attribute specific claims,
+  arguments or examples to Chalmers** beyond what the existing nodes or his
+  webpage state. When in doubt, let the philosopher argue from their own
+  position and leave Chalmers out of that line.
 - **Check positions against the SEP.** For each philosopher, use the SEP
   entry or entries listed under **Reference sources** as the authority on
-  what they held, alongside *Reality+*. Where the two differ, follow the SEP
-  on the philosopher's own view and *Reality+* on Chalmers's use of it. Where
-  the list says there is no SEP entry, rely on *Reality+* and keep claims about
-  the person modest. Paraphrase the SEP as well: do not copy its sentences.
+  what they held. Where the list says there is no SEP entry, rely on the
+  philosopher's existing node and on widely known facts about their work, and
+  keep claims about the person modest. Paraphrase the SEP: do not copy its
+  sentences.
 - **No long quotations.** At most one short phrase (under 15 words) quoted from
-  *Reality+* or any other modern book. Paraphrase everything else. Short lines
+  Chalmers's webpage, the SEP or any other modern source. Paraphrase everything else. Short lines
   from public-domain historical texts are fine.
 - **Respect the player.** Every option is a position a thoughtful person might
   hold. None of them is a joke option, and nobody is mocked.
@@ -208,7 +219,7 @@ use the named section where one is listed.
 
 | File key | SEP entries |
 |---|---|
-| Heim | No entry. Rely on *Reality+* ch. 6 and 10. |
+| Heim | No entry. Rely on his existing node (`Talk_Heim`, `Gate_Metaphysics`) and keep claims modest. |
 | Berkeley | https://plato.stanford.edu/entries/berkeley/ |
 | Plato | https://plato.stanford.edu/entries/plato/ |
 | Descartes | https://plato.stanford.edu/entries/descartes-epistemology/ |
@@ -221,21 +232,21 @@ use the named section where one is listed.
 | Carnap | https://plato.stanford.edu/entries/carnap/ |
 | Anselm | https://plato.stanford.edu/entries/anselm/ and https://plato.stanford.edu/entries/ontological-arguments/ |
 | Leibniz | https://plato.stanford.edu/entries/leibniz-evil/ |
-| Narada | No entry. Rely on *Reality+* ch. 1. |
+| Narada | No entry. Rely on his existing node (`Talk_Narada`) and the traditional story of Narada and Vishnu's maya; keep claims modest. |
 | Turing | https://plato.stanford.edu/entries/turing/ |
 | Searle | https://plato.stanford.edu/entries/chinese-room/ |
 | Wheeler | https://plato.stanford.edu/entries/information-semantic/ (discusses his "it from bit") |
 | Russell | https://plato.stanford.edu/entries/russell/ and https://plato.stanford.edu/entries/russellian-monism/ |
 | Sellars | https://plato.stanford.edu/entries/sellars/ |
 | Galileo | https://plato.stanford.edu/entries/galileo/ |
-| Bostrom | No entry on him or the simulation argument. https://plato.stanford.edu/entries/brain-vat/ for the sceptical background; rely on *Reality+* ch. 5 for the argument itself. |
+| Bostrom | No entry on him or the simulation argument. https://plato.stanford.edu/entries/brain-vat/ for the sceptical background; rely on his existing node (`Talk_Bostrom`) and the widely known form of his simulation argument. |
 | Boltzmann | https://plato.stanford.edu/entries/statphys-boltzmann/ |
 | Nozick | No entry on him. https://plato.stanford.edu/entries/well-being/ (section 4.1, the experience machine) and https://plato.stanford.edu/entries/hedonism/ |
 | Bentham | https://plato.stanford.edu/entries/bentham/ |
 | Kant | https://plato.stanford.edu/entries/kant-moral/ |
 | Aristotle | https://plato.stanford.edu/entries/aristotle-ethics/ |
 | Singer | No entry on him. https://plato.stanford.edu/entries/moral-animal/ |
-| Slater | No entry. https://plato.stanford.edu/entries/experimental-moral/ (VR versions of moral dilemmas); rely on *Reality+* ch. 19 and 11 for his experiments. |
+| Slater | No entry. https://plato.stanford.edu/entries/experimental-moral/ (VR versions of moral dilemmas); rely on his existing node (`Talk_Slater`) for his experiments and do not add details of studies beyond it. |
 | Mozi | https://plato.stanford.edu/entries/mohism/ |
 | Hobbes | https://plato.stanford.edu/entries/hobbes-moral/ |
 | Rawls | https://plato.stanford.edu/entries/rawls/ |
