@@ -13733,7 +13733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PhilosopherNPC
   dialogueRunner: {fileID: 0}
-  startNode: Gate_Probability
+  startNode: Converse_Bostrom
   displayName: Nick Bostrom
   talkRadius: 3
   requireKeyPress: 1
@@ -19839,7 +19839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PhilosopherNPC
   dialogueRunner: {fileID: 0}
-  startNode: Gate_WellBeing
+  startNode: Converse_Nozick
   displayName: Robert Nozick
   talkRadius: 3
   requireKeyPress: 1
@@ -22149,7 +22149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PhilosopherNPC
   dialogueRunner: {fileID: 1389769756}
-  startNode: Gate_Metaphysics
+  startNode: Converse_Heim
   displayName: Michael Heim
   talkRadius: 3
   requireKeyPress: 1
@@ -22273,7 +22273,7 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   callOutNode: 
   callOutRadius: 14
-  joinNode: Gate_Metaphysics
+  joinNode: Converse_Heim
   walkingNodes: []
   arrivalNode: 
   revisitNode: 

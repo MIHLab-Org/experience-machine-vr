@@ -3,6 +3,9 @@ tags: converse
 area: WellBeing
 speaker: Nozick
 ---
+<<if visited("Converse_Nozick_Close")>>
+    <<jump Gate_WellBeing>>
+<<endif>>
 Nozick: You stand beneath the trees, considering how a human life can be said to go well.
 Nozick: When we evaluate human well-being, we ask what truly gives value to our lives.
 Nozick: Virtual technology raises a fundamental question about the nature of value itself.

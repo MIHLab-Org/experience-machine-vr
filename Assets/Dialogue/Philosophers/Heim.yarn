@@ -3,6 +3,9 @@ tags: converse
 area: Metaphysics
 speaker: Heim
 ---
+<<if visited("Converse_Heim_Close")>>
+    <<jump Gate_Metaphysics>>
+<<endif>>
 Heim: You reach out your hand to touch a glowing lantern suspended in the virtual forest.
 Heim: Your eyes see its light and your fingers register its form through haptic gloves.
 Heim: Yet the lantern is constructed entirely of binary code executing on microprocessors.

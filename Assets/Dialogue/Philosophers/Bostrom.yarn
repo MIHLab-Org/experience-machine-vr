@@ -3,6 +3,9 @@ tags: converse
 area: Probability
 speaker: Bostrom
 ---
+<<if visited("Converse_Bostrom_Close")>>
+    <<jump Gate_Probability>>
+<<endif>>
 Bostrom: You walk through a forest of trees, but every leaf could be rendered by computer software.
 Bostrom: Physical reality and simulated reality can look, sound, and feel identical to an observer.
 Bostrom: If future technological civilizations build countless virtual worlds populated by conscious beings, simulated observers will vastly outnumber physical ones.
