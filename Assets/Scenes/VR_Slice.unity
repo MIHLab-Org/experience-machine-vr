@@ -10157,12 +10157,12 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 872b7d3fb8bf5de4bbd716ee4b94b635, type: 2}
-  m_TreeDistance: 5000
+  m_TreeDistance: 200
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 189
-  m_DetailObjectDensity: 1
+  m_DetailObjectDistance: 35
+  m_DetailObjectDensity: 0.35
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMinimumLODSimplification: 0
@@ -25286,6 +25286,7 @@ MonoBehaviour:
   canvas: {fileID: 1133551033}
   button: {fileID: 886664019}
   label: {fileID: 2066406671}
+  holdAfterPause: 3.5
 --- !u!1001 &1971545887
 PrefabInstance:
   m_ObjectHideFlags: 0
