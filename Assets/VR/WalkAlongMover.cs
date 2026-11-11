@@ -32,8 +32,10 @@ using Yarn.Unity;
 ///      parent of TrackingSpace), and set each PhilosopherWalker's Player Override to the same
 ///      object so they agree on where the player is. Empty = the active walker's player.
 ///   3. Head: leave empty to use Camera.main (CenterEyeAnchor).
-///   4. If the rig root has a CharacterController (Meta's player controller does), it is moved
-///      with CharacterController.Move so collisions still apply.
+///   4. If the rig root has a CharacterController, it is moved with CharacterController.Move so
+///      collisions still apply. Meta's FirstPersonLocomotor (Comprehensive Interaction rig) is
+///      switched off while the rig is being carried and back on when it stops, so its body
+///      never fights the carry on steep ground.
 ///   5. Turn off any other locomotion (thumbstick movement) in VR_Slice; hands-only play has none.
 ///   6. A pinch or button calls Stop() / Toggle(); V7's menu or Meta's Building Blocks wire that.
 /// </summary>
@@ -200,12 +202,44 @@ public class WalkAlongMover : MonoBehaviour
         if (moving != wasMoving)
         {
             wasMoving = moving;
-            if (moving) onStartMoving?.Invoke();
-            else onStopMoving?.Invoke();
+            if (moving) { SuspendPlayerLocomotion(mover); onStartMoving?.Invoke(); }
+            else { ResumePlayerLocomotion(); onStopMoving?.Invoke(); }
         }
 
         UpdateVignette(dt);
     }
+
+    // ---------------------------------------------------------------- Meta locomotor hand-off
+    // Meta's FirstPersonLocomotor keeps its own body (PlayerController) and pulls the rig back
+    // to it every frame. That body can step only ~0.3 m, while NavMesh paths climb up to 0.75 m,
+    // so on rough hillsides it got stuck and snapped the player backwards. While this script is
+    // moving the rig, the locomotor is switched off (its body is a child of the rig, so it is
+    // carried along); when the motion stops it is switched back on and takes over from there.
+    // Found by type name, so this file needs no Meta types.
+
+    private const string MetaLocomotorType = "Oculus.Interaction.Locomotion.FirstPersonLocomotor";
+    private readonly System.Collections.Generic.List<Behaviour> suspendedLocomotors = new System.Collections.Generic.List<Behaviour>();
+
+    private void SuspendPlayerLocomotion(Transform rig)
+    {
+        if (rig == null || suspendedLocomotors.Count > 0) return;
+        foreach (Behaviour b in rig.GetComponentsInChildren<Behaviour>())
+        {
+            if (b != null && b.enabled && b.GetType().FullName == MetaLocomotorType)
+            {
+                b.enabled = false;
+                suspendedLocomotors.Add(b);
+            }
+        }
+    }
+
+    private void ResumePlayerLocomotion()
+    {
+        foreach (Behaviour b in suspendedLocomotors) if (b != null) b.enabled = true;
+        suspendedLocomotors.Clear();
+    }
+
+    private void OnDisable() { ResumePlayerLocomotion(); }
 
     // ---------------------------------------------------------------- walking
 

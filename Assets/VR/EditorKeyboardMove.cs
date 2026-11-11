@@ -116,7 +116,8 @@ public class EditorKeyboardMove : MonoBehaviour
         Vector2 input = new Vector2(
             (kb.dKey.isPressed ? 1f : 0f) - (kb.aKey.isPressed ? 1f : 0f),
             (kb.wKey.isPressed ? 1f : 0f) - (kb.sKey.isPressed ? 1f : 0f));
-        if (input.sqrMagnitude < 0.01f) return;
+        if (input.sqrMagnitude < 0.01f) { ResumePlayerLocomotion(); return; }
+        SuspendPlayerLocomotion(transform);
 
         Transform view = Camera.main != null ? Camera.main.transform : transform;
         Vector3 forward = view.forward; forward.y = 0f;
@@ -131,6 +132,38 @@ public class EditorKeyboardMove : MonoBehaviour
         if (TryGetComponent(out CharacterController cc) && cc.enabled) cc.Move(target - transform.position);
         else transform.position = target;
     }
+
+    // ---------------------------------------------------------------- Meta locomotor hand-off
+    // Meta's FirstPersonLocomotor keeps its own body (PlayerController) and pulls the rig back
+    // to it every frame. That body can step only ~0.3 m, while NavMesh paths climb up to 0.75 m,
+    // so on rough hillsides it got stuck and snapped the player backwards. While this script is
+    // moving the rig, the locomotor is switched off (its body is a child of the rig, so it is
+    // carried along); when the motion stops it is switched back on and takes over from there.
+    // Found by type name, so this file needs no Meta types.
+
+    private const string MetaLocomotorType = "Oculus.Interaction.Locomotion.FirstPersonLocomotor";
+    private readonly System.Collections.Generic.List<Behaviour> suspendedLocomotors = new System.Collections.Generic.List<Behaviour>();
+
+    private void SuspendPlayerLocomotion(Transform rig)
+    {
+        if (rig == null || suspendedLocomotors.Count > 0) return;
+        foreach (Behaviour b in rig.GetComponentsInChildren<Behaviour>())
+        {
+            if (b != null && b.enabled && b.GetType().FullName == MetaLocomotorType)
+            {
+                b.enabled = false;
+                suspendedLocomotors.Add(b);
+            }
+        }
+    }
+
+    private void ResumePlayerLocomotion()
+    {
+        foreach (Behaviour b in suspendedLocomotors) if (b != null) b.enabled = true;
+        suspendedLocomotors.Clear();
+    }
+
+    private void OnDisable() { ResumePlayerLocomotion(); }
 
     // ---------------------------------------------------------------- dialogue keys (Editor only)
     // In VR_Slice the Yarn LineAdvancer ignores the keyboard (so a press on the Quest never
