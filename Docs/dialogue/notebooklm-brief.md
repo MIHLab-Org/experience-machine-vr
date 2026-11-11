@@ -44,56 +44,103 @@ debaters. The philosopher argues their real position. The player picks the
 position they want to try out, and the philosopher engages *that* position
 seriously. It is never a quiz, and no answer is marked wrong.
 
-Required structure (node names use the file's key, here `Kant`):
+Required structure. Node names use the file's key, here `Kant`; replace the
+words in capitals with short words of your own (for example `DUTY`, `OUTCOMES`).
+This is a fixed map: write **every** node on it.
 
-1. **`Converse_Kant`**: the entry node. The philosopher greets the player in
-   character, raises the problem in their own terms and connects it to virtual
-   worlds. It ends with **Choice 1**: two or three options,
-   each a different perspective on the problem.
-2. **One node per perspective**, for example `Converse_Kant_Outcomes`,
-   `Converse_Kant_Duty` and `Converse_Kant_Doubt`. In each one the philosopher
-   takes the player's view seriously, states it at its strongest, and then
-   presses on it with the best objection from their own position. Each ends
-   with **Choice 2**: for example concede, push back, or ask a question.
-   **Each Choice 2 option jumps to its own follow-up node** (for example
-   `Converse_Kant_Duty_Concede`, `Converse_Kant_Duty_PushBack`), in which the
-   philosopher responds to *that* move with two to four lines of real
-   substance: a new consideration, a counterexample, or a concession of
-   their own. Only after those follow-up nodes do the paths rejoin at step 3.
-3. **`Converse_Kant_Turn`**: the philosopher turns the argument on
-   themselves. Present the strongest objection to *their own* view, the one
-   their best critics make, and let them answer it honestly. Name the critic if
-   that critic is another philosopher in the game (see the roster). Otherwise
-   say "my critics". End with **Choice 3**: two or three verdicts the player
-   could reach. **Each verdict jumps to its own short node** in which the
-   philosopher answers that verdict specifically, before all of them jump to
-   the Close.
-4. **`Converse_Kant_Close`**: a short wrap-up that names what is still open
-   and leaves the player with a question to carry. The last line of the node
-   must be the handoff jump from the roster, for example `<<jump Talk_Kant>>`.
+```
+Converse_Kant                         entry. Choice 1: 2 or 3 positions, A, B (, C)
+  -> Converse_Kant_A                  the philosopher engages position A. Choice 2
+       -> Converse_Kant_A_CONCEDE     a reply to the player conceding
+       -> Converse_Kant_A_PUSHBACK    a reply to the player pushing back
+       (-> Converse_Kant_A_ASK)       optional: a reply to a question
+  -> Converse_Kant_B                  the same for position B
+       -> Converse_Kant_B_CONCEDE
+       -> Converse_Kant_B_PUSHBACK
+  (-> Converse_Kant_C ...)            optional third position, same pattern
+Converse_Kant_Turn                    every Choice 2 reply node jumps here.
+                                      Choice 3: 2 or 3 verdicts
+  -> Converse_Kant_Verdict_FIRST      a reply to that verdict
+  -> Converse_Kant_Verdict_SECOND
+Converse_Kant_Close                   every verdict node jumps here; ends with the handoff
+```
+
+What each kind of node must do:
+
+1. **Entry (`Converse_Kant`).** The philosopher greets the player in character
+   and raises the problem in their own terms, connected to virtual worlds.
+   **Do not say "welcome to" the grove or the area, and do not name the
+   area**: the node you hand off to already does that for some philosophers.
+   Choice 1 offers two or three genuinely different positions.
+2. **Position nodes (`Converse_Kant_A` and so on).** The philosopher states
+   the player's position at its strongest, then presses on it with the best
+   objection from their own view. Choice 2 offers the player's possible moves:
+   concede, push back, or ask. **Every Choice 2 option jumps to its own reply
+   node. None of them may jump straight to the Turn.**
+3. **Reply nodes (`_CONCEDE`, `_PUSHBACK`, `_ASK`).** Two to four lines that
+   answer *that* move with something new: a further consideration, a
+   counterexample, or a concession by the philosopher. Then `<<jump
+   Converse_Kant_Turn>>`.
+4. **Turn (`Converse_Kant_Turn`).** The philosopher states the strongest
+   objection to *their own* view **and answers it in this same node**, honestly,
+   including what the answer does not settle. Then Choice 3 offers two or three
+   verdicts the player might reach (for example "Your answer holds", "Your
+   critics win this one", "It depends on something we have not settled").
+   **Do not offer "How do you answer that?" as an option**: the answer has
+   already been given.
+5. **Verdict nodes (`Converse_Kant_Verdict_...`).** Two or three lines replying
+   to that verdict specifically, then `<<jump Converse_Kant_Close>>`.
+6. **Close (`Converse_Kant_Close`).** Two or three lines that name what is
+   still open and leave the player with a question to carry. The last line is
+   the handoff jump from the roster, for example `<<jump Talk_Kant>>`.
 
 ### Branching rule (most important)
 
-- **No two options in the same choice may jump to the same node.** Every
-  option leads to a node written for that option.
-- A different option must get a different *response*, not the same
-  response with one line changed. If two options would get the same reply,
-  merge them into one option or rewrite one of them.
-- Paths may rejoin in exactly two places: at `Converse_<Key>_Turn`, after the
-  Choice 2 follow-up nodes, and at `Converse_<Key>_Close`, after the Choice 3
-  verdict nodes.
-- Before you output the file, check every choice: list each option's target
-  node and confirm that no target repeats within a choice.
+- **No two options in the same choice may jump to the same node,** and no
+  option may skip its reply node.
+- A different option must get a different *response*, not the same response
+  with one line changed. If two options would get the same reply, merge them
+  or rewrite one.
+- Paths rejoin only at `Converse_<Key>_Turn` and `Converse_<Key>_Close`.
 
-Size: 70 to 120 lines in total across 10 to 18 nodes. Any single path through
-the conversation should take a player about 3 to 5 minutes.
+### Size
+
+At least **45 spoken lines** in total (count only lines that start with the
+speaker's name; headers, options and jumps do not count), across 11 to 18
+nodes. Any single path through the conversation should be about 15 to 20
+spoken lines, three to five minutes in the headset.
+
+### Avoid stock lines
+
+Do not reuse filler transitions. In particular, none of these, or close
+variants: "Let us test the limits of your view", "Let me turn this on my own
+position", "Precisely", "Exactly", "Indeed", "Step forward", "Step closer",
+"Take me to...". Every line should say something about the argument.
+
+### Before you output
+
+Write the file, then check it and fix it before showing it:
+
+1. For every choice, list each option's target. No target repeats within a
+   choice, and no Choice 2 option targets the Turn.
+2. Every node on the map exists, and every node is reached.
+3. Count the spoken lines: at least 45.
+4. The Turn node contains the philosopher's answer to the objection.
+5. No line from the "Avoid stock lines" list.
+
+Output only the final file, not the checklist.
 
 ## Voice and content
 
 - **Discursive, not a lecture.** The philosopher asks more than they tell. No
   speech should run longer than three lines before the player gets to choose
   something.
-- **Accurate positions.** State only what the philosopher actually held. A
+- **Accurate positions.** State only what the philosopher actually held.
+  This applies to critics too: name another philosopher as a critic only for
+  an objection that philosopher actually made, or that clearly follows from
+  their stated view (Bentham on pleasure, for example). An objection named
+  after someone, such as the "Boltzmann brain" problem, was not necessarily
+  made by that person. If in doubt, say "my critics". A
   historical figure reasons about virtual worlds *from their own commitments*
   ("If your senses could be fed by a machine, then by my method...") and never
   claims to know modern facts they could not have known. The game has always
