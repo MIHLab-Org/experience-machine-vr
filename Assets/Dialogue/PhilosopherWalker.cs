@@ -739,9 +739,54 @@ public class PhilosopherWalker : MonoBehaviour
 
     private Vector3 SlotBesidePlayer()
     {
-        Vector3 fwd = PlayerFlatForward();
+        // "Ahead" is the way to the goal, measured from the player's head. In VR the rig root
+        // neither turns nor moves with the head, so its forward is not where the player faces
+        // (headset test 2026-11-12: nobody walked in front).
+        Vector3 from = PlayerHeadPosition();
+        Vector3 fwd = TravelDirection(from);
         Vector3 right = Vector3.Cross(Vector3.up, fwd).normalized;
-        return player.position + right * sideOffset + fwd * forwardOffset;
+        return from + right * sideOffset + fwd * forwardOffset;
+    }
+
+    private Vector3 PlayerHeadPosition()
+    {
+        Camera cam = Camera.main;
+        if (cam != null && player != null && cam.transform.IsChildOf(player))
+        {
+            Vector3 h = cam.transform.position; h.y = player.position.y;
+            return h;
+        }
+        return player.position;
+    }
+
+    private UnityEngine.AI.NavMeshPath slotPath;
+    private Vector3 lastTravelDir;
+    private float nextPathTime;
+
+    private Vector3 TravelDirection(Vector3 from)
+    {
+        Transform goal = CurrentGoal();
+        if (goal == null) return PlayerFlatForward();
+        if (Time.time >= nextPathTime || lastTravelDir == Vector3.zero)
+        {
+            nextPathTime = Time.time + 0.5f;
+            Vector3 dir = goal.position - from;
+            if (slotPath == null) slotPath = new UnityEngine.AI.NavMeshPath();
+            if (UnityEngine.AI.NavMesh.SamplePosition(from, out var a, 3f, UnityEngine.AI.NavMesh.AllAreas) &&
+                UnityEngine.AI.NavMesh.SamplePosition(goal.position, out var b, 3f, UnityEngine.AI.NavMesh.AllAreas) &&
+                UnityEngine.AI.NavMesh.CalculatePath(a.position, b.position, UnityEngine.AI.NavMesh.AllAreas, slotPath))
+            {
+                Vector3[] c = slotPath.corners;
+                for (int i = 1; i < c.Length; i++)
+                {
+                    Vector3 d = c[i] - from; d.y = 0f;
+                    if (d.sqrMagnitude > 1f) { dir = d; break; }   // first corner far enough to give a direction
+                }
+            }
+            dir.y = 0f;
+            if (dir.sqrMagnitude > 0.0001f) lastTravelDir = dir.normalized;
+        }
+        return lastTravelDir != Vector3.zero ? lastTravelDir : PlayerFlatForward();
     }
 
     private Vector3 PlayerFlatForward()

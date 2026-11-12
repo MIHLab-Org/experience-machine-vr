@@ -14451,8 +14451,8 @@ MonoBehaviour:
   animator: {fileID: 1965858282}
   walkSpeed: 3
   stopDistance: 0.5
-  sideOffset: -1
-  forwardOffset: 1.9
+  sideOffset: -0.7
+  forwardOffset: 2.4
   turnSpeed: 5
   walkBoolParam: IsWalking
   playerStoppedSpeed: 0.4
@@ -30618,8 +30618,8 @@ MonoBehaviour:
   animator: {fileID: 1880623591}
   walkSpeed: 3
   stopDistance: 0.5
-  sideOffset: -1
-  forwardOffset: 1.9
+  sideOffset: -0.7
+  forwardOffset: 2.4
   turnSpeed: 5
   walkBoolParam: IsWalking
   playerStoppedSpeed: 0.4
@@ -32099,8 +32099,8 @@ MonoBehaviour:
   animator: {fileID: 413847473}
   walkSpeed: 3
   stopDistance: 0.5
-  sideOffset: -1
-  forwardOffset: 1.9
+  sideOffset: -0.7
+  forwardOffset: 2.4
   turnSpeed: 5
   walkBoolParam: IsWalking
   playerStoppedSpeed: 0.4
@@ -35097,8 +35097,8 @@ MonoBehaviour:
   animator: {fileID: 908567941}
   walkSpeed: 3
   stopDistance: 0.5
-  sideOffset: -1
-  forwardOffset: 1.9
+  sideOffset: -0.7
+  forwardOffset: 2.4
   turnSpeed: 5
   walkBoolParam: IsWalking
   playerStoppedSpeed: 0.4
@@ -37868,8 +37868,8 @@ MonoBehaviour:
   animator: {fileID: 1397329557}
   walkSpeed: 3
   stopDistance: 0.5
-  sideOffset: -1
-  forwardOffset: 1.9
+  sideOffset: -0.7
+  forwardOffset: 2.4
   turnSpeed: 5
   walkBoolParam: IsWalking
   playerStoppedSpeed: 0.4
