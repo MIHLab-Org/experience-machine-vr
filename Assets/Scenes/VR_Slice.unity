@@ -26616,6 +26616,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3416868783655305253, guid: 52571f68872914e24837210513edea1d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1572082964}
+    - targetCorrespondingSourceObject: {fileID: 3416868783655305253, guid: 52571f68872914e24837210513edea1d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1572082967}
   m_SourcePrefab: {fileID: 100100000, guid: 52571f68872914e24837210513edea1d, type: 3}
 --- !u!224 &1427902433 stripped
 RectTransform:
@@ -28625,6 +28628,20 @@ MonoBehaviour:
   onContinue:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1572082967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572082962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3410f4cf8bdf6174daa8b3e89c5151a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandDebugHUD
+  show: 1
+  fontSize: 28
 --- !u!1 &1578670204
 GameObject:
   m_ObjectHideFlags: 0
