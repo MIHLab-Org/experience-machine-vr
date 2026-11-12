@@ -17,7 +17,7 @@ public class NPCStroll : MonoBehaviour
     [Tooltip("How far from home the body may wander (m).")]
     public float wanderRadius = 3f;
     [Tooltip("Strolling speed (m/s). The walk clip looks right at about 0.6-1.0.")]
-    public float speed = 0.7f;
+    public float speed = 0.9f;
     [Tooltip("Speed when walking back home because the player is coming (m/s).")]
     public float returnSpeed = 1.2f;
     [Tooltip("Player closer than this (m): go home and stand.")]
@@ -26,6 +26,8 @@ public class NPCStroll : MonoBehaviour
     public Vector2 pause = new Vector2(0.2f, 1.2f);
     public float turnSpeed = 5f;
     public string walkBoolParam = "IsWalking";
+    [Tooltip("Ground speed (m/s) of the walk clip at animator speed 1 (X Bot Walking = 1.68). The step rate is scaled to match actual speed so feet don't slide.")]
+    public float clipSpeed = 1.68f;
 
     private readonly List<Transform> kids = new List<Transform>();
     private readonly List<Vector3> kidLocal = new List<Vector3>();
@@ -39,6 +41,8 @@ public class NPCStroll : MonoBehaviour
     private float homeGroundY;
     private float wait;
     private bool hasNav;
+    private Vector3 lastRootPos;
+    private float smoothedRootSpeed;
 
     private void Start()
     {
@@ -49,6 +53,7 @@ public class NPCStroll : MonoBehaviour
         hasNav = NavMesh.SamplePosition(transform.position, out NavMeshHit h, 2f, NavMesh.AllAreas);
         homeGroundY = hasNav ? h.position.y : transform.position.y;
         target = Vector3.zero;
+        lastRootPos = transform.position;
         wait = Random.Range(0f, 2f);
         if (body == null || animator == null) enabled = false;
     }
@@ -65,15 +70,22 @@ public class NPCStroll : MonoBehaviour
     {
         float dt = Time.deltaTime;
         bool walkerBusy = walker != null && (walker.State != PhilosopherWalker.WalkState.Idle || PhilosopherWalker.Active == walker);
+        // How fast the root itself moves (PhilosopherWalker carrying him), for step-rate matching.
+        float rootSpeed = dt > 0f ? Flat(transform.position - lastRootPos).magnitude / dt : 0f;
+        lastRootPos = transform.position;
+        smoothedRootSpeed = Mathf.Lerp(smoothedRootSpeed, rootSpeed, 1f - Mathf.Exp(-8f * dt));
+
         if (walkerBusy)
         {
             if (offset != Vector3.zero) { offset = Vector3.zero; target = Vector3.zero; Place(); body.localRotation = bodyLocalRot; }
-            return; // the walker owns the animator
+            animator.speed = smoothedRootSpeed > 0.15f ? Mathf.Clamp(smoothedRootSpeed / clipSpeed, 0.5f, 1.3f) : 1f;
+            return; // the walker owns the walk bool
         }
 
         Transform p = Player();
         bool playerNear = p != null && Flat(p.position - transform.position).magnitude < stopRadius;
         bool moving = false;
+        float v = 0f;
 
         if (!hasNav)
         {
@@ -82,7 +94,7 @@ public class NPCStroll : MonoBehaviour
         else if (playerNear)
         {
             target = Vector3.zero;
-            moving = Step(returnSpeed, dt);
+            moving = Step(returnSpeed, dt); v = returnSpeed;
         }
         else if (wait > 0f)
         {
@@ -90,7 +102,7 @@ public class NPCStroll : MonoBehaviour
         }
         else
         {
-            moving = Step(speed, dt);
+            moving = Step(speed, dt); v = speed;
             if (!moving) { PickTarget(); wait = Random.Range(pause.x, pause.y); }
         }
 
@@ -108,6 +120,7 @@ public class NPCStroll : MonoBehaviour
         }
 
         if (!string.IsNullOrEmpty(walkBoolParam)) animator.SetBool(walkBoolParam, moving);
+        animator.speed = moving ? Mathf.Clamp(v / clipSpeed, 0.5f, 1.3f) : 1f;
     }
 
     // Moves offset toward target; false when there.
