@@ -44,6 +44,8 @@ public class NPCLook : MonoBehaviour
 
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor"); // URP Lit
     private static readonly int ColorId = Shader.PropertyToID("_Color");         // Built-in / legacy
+    private static readonly int BaseMapId = Shader.PropertyToID("_BaseMap");     // URP Lit texture
+    private static readonly int MainTexId = Shader.PropertyToID("_MainTex");     // Built-in / legacy texture
     private static readonly string[] SkinWords = { "Body", "Skin", "Eye", "Lash", "Teeth", "Tongue", "Nails", "Cornea", "Tearline" };
 
     [Tooltip("The look to apply.")]
@@ -121,6 +123,11 @@ public class NPCLook : MonoBehaviour
             block.Clear();
             block.SetColor(BaseColorId, slot.colour);
             block.SetColor(ColorId, slot.colour);
+            if (slot.plain)
+            {
+                block.SetTexture(BaseMapId, Texture2D.whiteTexture);
+                block.SetTexture(MainTexId, Texture2D.whiteTexture);
+            }
 
             if (slot.materialIndex >= 0 && slot.materialIndex < r.sharedMaterials.Length)
             {

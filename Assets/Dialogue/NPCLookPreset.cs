@@ -19,6 +19,8 @@ public class NPCLookPreset : ScriptableObject
         [Tooltip("-1 = whole renderer. Otherwise only this material slot (e.g. the robe's belt).")]
         public int materialIndex = -1;
         public Color colour = Color.white;
+        [Tooltip("Plain: drop the texture so the colour shows exactly (for a shirt whose texture is already strongly coloured). Off = tint over the texture.")]
+        public bool plain = false;
     }
 
     [Tooltip("Which body this preset was made for (herbert, shorts-shirt-guy, business-lady, hiker-lady). Informational.")]

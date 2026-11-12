@@ -3358,7 +3358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: 4ce717ddddb4437428b884cba2e6a56e, type: 2}
   bodyRoot: {fileID: 1028377638}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -8985,7 +8985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: 4de0ccd945579114a8b842d4bb35bcb7, type: 2}
   bodyRoot: {fileID: 906901131}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -9469,6 +9469,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1706056652}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.98
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12896,6 +12908,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1660754422}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -13828,6 +13852,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1174393537}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -14289,7 +14325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: c65bcbad71d40764c9cb06d7126c2e18, type: 2}
   bodyRoot: {fileID: 1965858281}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -17476,6 +17512,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6619113653451762366, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17494,6 +17534,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1829589914}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.03
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -17673,6 +17725,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070036489}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.02
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19089,7 +19153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: ddc1914ef3fa4f444b7a3ea13392e2e0, type: 2}
   bodyRoot: {fileID: 1862069652}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -19414,6 +19478,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 167987229}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.05
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -20186,7 +20262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: 13f9248fcf98d224d902e4ea4656c84c, type: 2}
   bodyRoot: {fileID: 918470362}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -22092,7 +22168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: 470db89e93b6c224dac4e0bc8c7928d0, type: 2}
   bodyRoot: {fileID: 347588665}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -26634,6 +26710,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1987738544}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -28403,6 +28491,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1628537456}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -29327,7 +29427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: e795b533fb6fc614282aa85d6b961330, type: 2}
   bodyRoot: {fileID: 1550748040}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -30226,7 +30326,7 @@ Transform:
   m_GameObject: {fileID: 1658617854}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9872102, z: -0, w: 0.1594241}
-  m_LocalPosition: {x: 263.8859, y: 13.475691, z: -369.55908}
+  m_LocalPosition: {x: 263.8859, y: 14.475691, z: -369.55908}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30377,7 +30477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: ebfbd878a90c988498f997776c70cbb9, type: 2}
   bodyRoot: {fileID: 1880623589}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -30412,10 +30512,10 @@ MonoBehaviour:
   agent: {fileID: 1658617863}
   animator: {fileID: 1880623591}
   walkSpeed: 3
-  stopDistance: 0.35
+  stopDistance: 0.5
   sideOffset: -1
-  forwardOffset: 0.2
-  turnSpeed: 6
+  forwardOffset: 1.9
+  turnSpeed: 5
   walkBoolParam: IsWalking
   playerStoppedSpeed: 0.4
   stoppedDwellTime: 0.9
@@ -30655,7 +30755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: 2210d3c055cb8ba428a3411acf77af9e, type: 2}
   bodyRoot: {fileID: 564871579}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -31707,7 +31807,7 @@ Transform:
   m_GameObject: {fileID: 1706056651}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9515748, z: -0, w: -0.30741742}
-  m_LocalPosition: {x: -549.5216, y: -10.347885, z: -75.609985}
+  m_LocalPosition: {x: -549.5216, y: -9.347885, z: -75.609985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31858,7 +31958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: 3bf3f55a61cd5d345a683533433fef2d, type: 2}
   bodyRoot: {fileID: 413847471}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -31893,10 +31993,10 @@ MonoBehaviour:
   agent: {fileID: 1706056660}
   animator: {fileID: 413847473}
   walkSpeed: 3
-  stopDistance: 0.35
+  stopDistance: 0.5
   sideOffset: -1
-  forwardOffset: 0.2
-  turnSpeed: 6
+  forwardOffset: 1.9
+  turnSpeed: 5
   walkBoolParam: IsWalking
   playerStoppedSpeed: 0.4
   stoppedDwellTime: 0.9
@@ -34856,7 +34956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: 29d3f187a44c1584e96e5072d45b25ea, type: 2}
   bodyRoot: {fileID: 908567940}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -34891,10 +34991,10 @@ MonoBehaviour:
   agent: {fileID: 1829589921}
   animator: {fileID: 908567941}
   walkSpeed: 3
-  stopDistance: 0.35
+  stopDistance: 0.5
   sideOffset: -1
-  forwardOffset: 0.2
-  turnSpeed: 6
+  forwardOffset: 1.9
+  turnSpeed: 5
   walkBoolParam: IsWalking
   playerStoppedSpeed: 0.4
   stoppedDwellTime: 0.9
@@ -36257,6 +36357,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1658617855}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -37464,7 +37576,7 @@ Transform:
   m_GameObject: {fileID: 1918555363}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.4896431, z: -0, w: 0.87192297}
-  m_LocalPosition: {x: 17.082886, y: 0.67507553, z: 45.368896}
+  m_LocalPosition: {x: 17.082886, y: 1.6750755, z: 45.368896}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37615,7 +37727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: 18521b4c50a7aa04bad2be5dafab2acd, type: 2}
   bodyRoot: {fileID: 1397329555}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
@@ -37650,10 +37762,10 @@ MonoBehaviour:
   agent: {fileID: 1918555372}
   animator: {fileID: 1397329557}
   walkSpeed: 3
-  stopDistance: 0.35
+  stopDistance: 0.5
   sideOffset: -1
-  forwardOffset: 0.2
-  turnSpeed: 6
+  forwardOffset: 1.9
+  turnSpeed: 5
   walkBoolParam: IsWalking
   playerStoppedSpeed: 0.4
   stoppedDwellTime: 0.9
@@ -38861,6 +38973,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 543450652478002679}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -38918,6 +39042,10 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: d6f4732dba519824f8aa717c7fbbabb1, type: 2}
     - target: {fileID: 5866666021909216657, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
       propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6619113653451762366, guid: 252bed16ee135474fbacf67ba8084cdc, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -39447,7 +39575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5723501c9117ed7429835d6767eceba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCLook
-  preset: {fileID: 0}
+  preset: {fileID: 11400000, guid: 2ded8ed875662e5459834c74da9f6132, type: 2}
   bodyRoot: {fileID: 1433888464}
   heightOverride: 0
   baseScale: {x: 1, y: 1, z: 1}
