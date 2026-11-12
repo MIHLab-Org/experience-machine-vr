@@ -17,8 +17,8 @@ The voice-over (VO) runs about 210 words in total. At a calm pace that leaves ro
 
 | Time | Shot (what's on screen) | VO |
 |---|---|---|
-| 0:00–0:08 | Title card over the forest, with birdsong: *Peripatos: The Experience Machine* | — |
-| 0:08–0:22 | In the headset: the forest, then both hands come up into view, open and turning | "Philosophers have always taught by walking. In *Peripatos* you walk too, and you only need your hands." |
+| 0:00–0:08 | Title card over the forest, with birdsong: *The Experience Machine: Walking the Peripatos* | — |
+| 0:08–0:22 | In the headset: the forest, then both hands come up into view, open and turning | "Philosophers have always taught by walking. In *The Experience Machine* you walk too, and you only need your hands." |
 | 0:22–0:40 | Step toward Socrates; he calls you over. The dialogue panel appears; point and pinch **Continue** twice | "Socrates meets you at the edge of a forest. Every grove in this forest is a branch of philosophy, and more than thirty philosophers live here." |
 | 0:40–1:00 | Socrates points at the tree and asks whether a virtual tree would be real. Hold on the three answers, then pinch **"I don't know."** | "He asks one question: if someone built this tree in a computer, would it be real? You answer by pointing and pinching. Your answer decides where you go next." |
 | 1:00–1:12 | The walk: Socrates sets off, the vignette fades in and you're carried beside him (cut down from about 75 seconds) | "When a philosopher walks, you walk with them, at walking pace, with a comfort vignette. Your view never turns by itself." |

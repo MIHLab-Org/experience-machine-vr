@@ -6,7 +6,7 @@ Task V12, drafted 2026-11-11 in an interactive session (Jim asked). **Draft only
 
 | Field | Draft |
 |---|---|
-| Project name | Peripatos: The Experience Machine |
+| Project name | The Experience Machine: Walking the Peripatos |
 | Tagline (≤ 140 characters) | Walk with Socrates through a forest of philosophers and decide, with your own hands, whether a virtual world can be real. *(121 characters)* |
 | Track | Entertainment (Jim, V4) |
 | Division | Adapted / Significantly Updated (Jim, V4; the project predates Sep 24) |
@@ -23,7 +23,7 @@ Other tagline options, if the first one doesn't sound like you:
 
 **Inspiration**
 
-I teach philosophy, and the question my students care about most is the one VR makes concrete: if a world is virtual, is it any less real? Robert Nozick asked whether you would plug into a machine that gave you any experience you wanted. Today the machine is on your face. *Peripatos* (after the walking school of Aristotle's Lyceum) turns that question into a walk. Socrates meets you in a forest and points at a tree: if someone built this tree in a computer, would it be real? Your answer decides where you go next.
+I teach philosophy, and the question my students care about most is the one VR makes concrete: if a world is virtual, is it any less real? Robert Nozick asked whether you would plug into a machine that gave you any experience you wanted. Today the machine is on your face. *The Experience Machine: Walking the Peripatos* (the peripatos was the covered walk of Aristotle's Lyceum, where philosophers taught while walking) turns that question into a walk. Socrates meets you in a forest and points at a tree: if someone built this tree in a computer, would it be real? Your answer decides where you go next.
 
 **What it is**
 
