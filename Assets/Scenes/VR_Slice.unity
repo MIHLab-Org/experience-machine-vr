@@ -1445,13 +1445,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Leibniz
   displayName: Gottfried Leibniz
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &78443149
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1943,13 +1943,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Clark
   displayName: Andy Clark
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &97503212
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3218,6 +3218,7 @@ GameObject:
   - component: {fileID: 167987230}
   - component: {fileID: 167987234}
   - component: {fileID: 167987235}
+  - component: {fileID: 167987236}
   m_Layer: 0
   m_Name: John Searle
   m_TagString: Untagged
@@ -3258,13 +3259,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Searle
   displayName: John Searle
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &167987231
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3391,6 +3392,25 @@ MonoBehaviour:
   onTalk:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &167987236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167987228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &170506907
 GameObject:
   m_ObjectHideFlags: 0
@@ -3880,13 +3900,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Sellars
   displayName: Wilfrid Sellars
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &193779556
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4265,13 +4285,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Gate_Language
   displayName: Hilary Putnam
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &206376403
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5506,13 +5526,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Gate_Mind
   displayName: Elisabeth of Bohemia
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &260252612
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5770,13 +5790,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Slater
   displayName: Mel Slater
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &265905998
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6903,13 +6923,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Galileo
   displayName: Galileo Galilei
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &332655182
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7343,7 +7363,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347588664}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
   m_Controller: {fileID: 9100000, guid: d6f4732dba519824f8aa717c7fbbabb1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -8824,6 +8844,7 @@ GameObject:
   - component: {fileID: 405032729}
   - component: {fileID: 405032733}
   - component: {fileID: 405032734}
+  - component: {fileID: 405032735}
   m_Layer: 0
   m_Name: John Wheeler
   m_TagString: Untagged
@@ -8864,13 +8885,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Wheeler
   displayName: John Wheeler
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &405032730
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8997,6 +9018,25 @@ MonoBehaviour:
   onTalk:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &405032735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405032727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &406862125
 GameObject:
   m_ObjectHideFlags: 0
@@ -9498,7 +9538,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413847472}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
   m_Controller: {fileID: 9100000, guid: d6f4732dba519824f8aa717c7fbbabb1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -11222,7 +11262,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564871578}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
   m_Controller: {fileID: 9100000, guid: d6f4732dba519824f8aa717c7fbbabb1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -11990,13 +12030,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Aristotle
   displayName: Aristotle
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &624495542
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14219,7 +14259,7 @@ MonoBehaviour:
   arriveDistance: 3
   sitSpot: {fileID: 1296193215}
   agent: {fileID: 735400820}
-  animator: {fileID: 735400815}
+  animator: {fileID: 1964602099}
   walkSpeed: 3
   stopDistance: 0.5
   sideOffset: -1
@@ -14309,6 +14349,25 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &735400823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735400809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &755992749
 GameObject:
   m_ObjectHideFlags: 0
@@ -16220,13 +16279,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Gate_Normative
   displayName: Immanuel Kant
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &863681506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16579,13 +16638,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Boltzmann
   displayName: Ludwig Boltzmann
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &880851210
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16989,13 +17048,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Bentham
   displayName: Jeremy Bentham
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &897789769
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18082,13 +18141,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Plato
   displayName: Plato
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &983965024
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18346,13 +18405,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Narada
   displayName: Narada
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &995163812
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18590,6 +18649,7 @@ GameObject:
   - component: {fileID: 1008970791}
   - component: {fileID: 1008970795}
   - component: {fileID: 1008970796}
+  - component: {fileID: 1008970797}
   m_Layer: 0
   m_Name: Alan Turing (lead)
   m_TagString: Untagged
@@ -18630,13 +18690,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Gate_Computing
   displayName: Alan Turing
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1008970792
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18763,6 +18823,25 @@ MonoBehaviour:
   onTalk:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1008970797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008970789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &1011033679
 GameObject:
   m_ObjectHideFlags: 0
@@ -18816,13 +18895,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Berkeley
   displayName: George Berkeley
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1011033682
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19654,6 +19733,7 @@ GameObject:
   - component: {fileID: 1070036490}
   - component: {fileID: 1070036494}
   - component: {fileID: 1070036495}
+  - component: {fileID: 1070036496}
   m_Layer: 0
   m_Name: G. E. Moore
   m_TagString: Untagged
@@ -19694,13 +19774,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Moore
   displayName: G. E. Moore
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1070036491
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19827,6 +19907,25 @@ MonoBehaviour:
   onTalk:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1070036496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070036488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &1070786378
 GameObject:
   m_ObjectHideFlags: 0
@@ -21699,6 +21798,7 @@ GameObject:
   - component: {fileID: 1174393538}
   - component: {fileID: 1174393542}
   - component: {fileID: 1174393543}
+  - component: {fileID: 1174393544}
   m_Layer: 0
   m_Name: Nick Bostrom (lead)
   m_TagString: Untagged
@@ -21739,13 +21839,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Converse_Bostrom
   displayName: Nick Bostrom
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1174393539
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21872,6 +21972,25 @@ MonoBehaviour:
   baseScale: {x: 1, y: 1, z: 1}
   baseScaleSaved: 1
   scaledRoot: {fileID: 347588665}
+--- !u!114 &1174393544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174393536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &1178029680
 GameObject:
   m_ObjectHideFlags: 0
@@ -22302,13 +22421,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Gate_Applied
   displayName: Peter Singer
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1199678034
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23246,6 +23365,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7379820825921340623, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -6153578011845702315, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.011871338
@@ -23286,6 +23409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.764
       objectReference: {fileID: 0}
+    - target: {fileID: -6124149243978924374, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -5807761279105333560, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.011871338
@@ -23325,6 +23452,14 @@ PrefabInstance:
     - target: {fileID: -5807761279105333560, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.764
+      objectReference: {fileID: 0}
+    - target: {fileID: -3843646465893119013, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2907793006868431239, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2173315284868601922, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23366,6 +23501,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 4.147
       objectReference: {fileID: 0}
+    - target: {fileID: -166220755413031868, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 695396651582372072, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799155161195343639, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_Name
       value: Socrates
@@ -23373,6 +23520,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234599587268099233, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467112829805770910, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2311335887172752394, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23413,6 +23568,10 @@ PrefabInstance:
     - target: {fileID: 2311335887172752394, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.764
+      objectReference: {fileID: 0}
+    - target: {fileID: 2573987118649370648, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2749484803845822167, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23504,7 +23663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_Controller
@@ -23682,6 +23841,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.184
       objectReference: {fileID: 0}
+    - target: {fileID: 8304175215116285622, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8631456438473009512, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.011871338
@@ -23759,6 +23922,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 735400822}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 735400823}
   m_SourcePrefab: {fileID: 100100000, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
 --- !u!1 &1272772886
 GameObject:
@@ -25070,13 +25236,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Gate_PhysicalScience
   displayName: Bertrand Russell
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1332244462
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25238,13 +25404,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Mozi
   displayName: Mozi
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1366861802
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25964,7 +26130,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397329556}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
   m_Controller: {fileID: 9100000, guid: d6f4732dba519824f8aa717c7fbbabb1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -26477,13 +26643,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Nagel
   displayName: Thomas Nagel
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1411512323
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26650,13 +26816,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Rawls
   displayName: John Rawls
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1416602706
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29557,6 +29723,7 @@ GameObject:
   - component: {fileID: 1628537457}
   - component: {fileID: 1628537461}
   - component: {fileID: 1628537462}
+  - component: {fileID: 1628537463}
   m_Layer: 0
   m_Name: "Ren\xE9 Descartes (lead)"
   m_TagString: Untagged
@@ -29597,13 +29764,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Gate_Epistemology
   displayName: "Ren\xE9 Descartes"
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1628537458
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29730,6 +29897,25 @@ MonoBehaviour:
   onTalk:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1628537463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628537455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &1631533184
 GameObject:
   m_ObjectHideFlags: 0
@@ -30558,6 +30744,7 @@ GameObject:
   - component: {fileID: 1658617862}
   - component: {fileID: 1658617861}
   - component: {fileID: 1658617860}
+  - component: {fileID: 1658617864}
   m_Layer: 0
   m_Name: Gregory of Nyssa
   m_TagString: Untagged
@@ -30758,7 +30945,7 @@ MonoBehaviour:
   arriveDistance: 3
   sitSpot: {fileID: 0}
   agent: {fileID: 1658617863}
-  animator: {fileID: 0}
+  animator: {fileID: 1880623591}
   walkSpeed: 3
   stopDistance: 0.35
   sideOffset: -1
@@ -30800,6 +30987,25 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1658617864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658617854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &1660754421
 GameObject:
   m_ObjectHideFlags: 0
@@ -30815,6 +31021,7 @@ GameObject:
   - component: {fileID: 1660754423}
   - component: {fileID: 1660754427}
   - component: {fileID: 1660754428}
+  - component: {fileID: 1660754429}
   m_Layer: 0
   m_Name: Robert Nozick (lead)
   m_TagString: Untagged
@@ -30855,13 +31062,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Converse_Nozick
   displayName: Robert Nozick
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1660754424
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30988,6 +31195,25 @@ MonoBehaviour:
   baseScale: {x: 1, y: 1, z: 1}
   baseScaleSaved: 1
   scaledRoot: {fileID: 564871579}
+--- !u!114 &1660754429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660754421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &1663295709
 GameObject:
   m_ObjectHideFlags: 0
@@ -31997,6 +32223,7 @@ GameObject:
   - component: {fileID: 1706056659}
   - component: {fileID: 1706056658}
   - component: {fileID: 1706056657}
+  - component: {fileID: 1706056661}
   m_Layer: 0
   m_Name: John Chrysostom
   m_TagString: Untagged
@@ -32197,7 +32424,7 @@ MonoBehaviour:
   arriveDistance: 3
   sitSpot: {fileID: 0}
   agent: {fileID: 1706056660}
-  animator: {fileID: 0}
+  animator: {fileID: 413847473}
   walkSpeed: 3
   stopDistance: 0.35
   sideOffset: -1
@@ -32239,6 +32466,25 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1706056661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706056651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &1707012828
 GameObject:
   m_ObjectHideFlags: 0
@@ -32387,13 +32633,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Gate_Political
   displayName: Thomas Hobbes
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1707861248
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35002,6 +35248,7 @@ GameObject:
   - component: {fileID: 1829589920}
   - component: {fileID: 1829589919}
   - component: {fileID: 1829589922}
+  - component: {fileID: 1829589923}
   m_Layer: 0
   m_Name: Michael Heim (lead)
   m_TagString: Untagged
@@ -35174,7 +35421,7 @@ MonoBehaviour:
   arriveDistance: 3
   sitSpot: {fileID: 0}
   agent: {fileID: 1829589921}
-  animator: {fileID: 1941071980}
+  animator: {fileID: 2001503770}
   walkSpeed: 3
   stopDistance: 0.35
   sideOffset: -1
@@ -35244,6 +35491,25 @@ MonoBehaviour:
   onTalk:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1829589923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829589913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!114 &1830695617 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3859336324316773513, guid: 52571f68872914e24837210513edea1d, type: 3}
@@ -35865,6 +36131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch42_nonPBR@Walking Left Turn
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d9be0ed9e7f0ea249a44bbe3e2af9e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36448,13 +36718,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Gate_Religion
   displayName: Anselm
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1876821689
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36642,7 +36912,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880623590}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 639b0d7621a5aaa479eae1fbc9b8b121, type: 3}
   m_Controller: {fileID: 9100000, guid: d6f4732dba519824f8aa717c7fbbabb1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -37684,6 +37954,7 @@ GameObject:
   - component: {fileID: 1918555371}
   - component: {fileID: 1918555370}
   - component: {fileID: 1918555369}
+  - component: {fileID: 1918555373}
   m_Layer: 0
   m_Name: Augustine
   m_TagString: Untagged
@@ -37884,7 +38155,7 @@ MonoBehaviour:
   arriveDistance: 3
   sitSpot: {fileID: 0}
   agent: {fileID: 1918555372}
-  animator: {fileID: 0}
+  animator: {fileID: 1397329557}
   walkSpeed: 3
   stopDistance: 0.35
   sideOffset: -1
@@ -37926,6 +38197,25 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1918555373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918555363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &1929893986
 GameObject:
   m_ObjectHideFlags: 0
@@ -38469,13 +38759,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Carnap
   displayName: Rudolf Carnap
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1946645679
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39134,6 +39424,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
   m_PrefabInstance: {fileID: 1964602097}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1964602099 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+  m_PrefabInstance: {fileID: 1964602097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1966508589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2253253772371814182, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
@@ -39572,6 +39867,7 @@ GameObject:
   - component: {fileID: 1987738545}
   - component: {fileID: 1987738549}
   - component: {fileID: 1987738550}
+  - component: {fileID: 1987738551}
   m_Layer: 0
   m_Name: Zhuangzi
   m_TagString: Untagged
@@ -39612,13 +39908,13 @@ MonoBehaviour:
   dialogueRunner: {fileID: 0}
   startNode: Talk_Zhuangzi
   displayName: Zhuangzi
-  talkRadius: 3
+  talkRadius: 4
   requireKeyPress: 1
   talkKey: 19
   showPrompt: 1
   facePlayer: 1
   turnSpeed: 6
-  playerOverride: {fileID: 612767640}
+  playerOverride: {fileID: 1966508589}
 --- !u!23 &1987738546
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39745,6 +40041,25 @@ MonoBehaviour:
   onTalk:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1987738551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987738543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780616a278aa5f84594ff26fe093731c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStroll
+  wanderRadius: 3
+  speed: 0.7
+  returnSpeed: 1.2
+  stopRadius: 8
+  pause: {x: 0.2, y: 1.2}
+  turnSpeed: 5
+  walkBoolParam: IsWalking
 --- !u!1 &1990302539
 GameObject:
   m_ObjectHideFlags: 0
@@ -39977,6 +40292,11 @@ MonoBehaviour:
   _selectSurface: {fileID: 496031222}
   _movementProvider: {fileID: 0}
   _tiebreakerScore: 0
+--- !u!95 &2001503770 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: ab56f2aacb1222e49a7bb436d5bc305d, type: 3}
+  m_PrefabInstance: {fileID: 1971545887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2001716462
 GameObject:
   m_ObjectHideFlags: 0
