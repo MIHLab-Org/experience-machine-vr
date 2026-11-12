@@ -59,7 +59,8 @@ public class HandDebugHUD : MonoBehaviour
             object cand = Get(r, "Candidate") ?? Get(r, "Interactable");
             sb.Append(side).Append(" ray: ").Append(state ?? "?").Append("  target: ").Append(Name(cand)).Append('\n');
         }
-        if (es != null && es.currentSelectedGameObject != null) sb.Append("selected: ").Append(es.currentSelectedGameObject.name);
+        sb.Append("controllers: ").Append(Ovr("GetConnectedControllers")).Append("  active: ").Append(Ovr("GetActiveController"));
+        if (es != null && es.currentSelectedGameObject != null) sb.Append("   selected: ").Append(es.currentSelectedGameObject.name);
         label.text = sb.ToString();
     }
 
@@ -68,6 +69,20 @@ public class HandDebugHUD : MonoBehaviour
         rays.Clear();
         foreach (var mb in FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude))
             if (mb.GetType().Name == "RayInteractor" && Path(mb.transform).Contains("Hand")) rays.Add(mb);
+    }
+
+    private static System.Type ovrInput;
+    private static string Ovr(string method)
+    {
+        try
+        {
+            if (ovrInput == null)
+                foreach (var a in System.AppDomain.CurrentDomain.GetAssemblies())
+                    if ((ovrInput = a.GetType("OVRInput")) != null) break;
+            var m = ovrInput != null ? ovrInput.GetMethod(method, BindingFlags.Public | BindingFlags.Static, null, System.Type.EmptyTypes, null) : null;
+            return m != null ? m.Invoke(null, null).ToString() : "?";
+        }
+        catch { return "?"; }
     }
 
     private static object Get(object o, string prop)
