@@ -20,6 +20,7 @@ public class HandDebugHUD : MonoBehaviour
     private readonly List<Component> rays = new List<Component>();
     private float nextScan;
     private string lastClick = "none";
+    private SimpleHandPointer simple;
 
     private void Start()
     {
@@ -59,6 +60,8 @@ public class HandDebugHUD : MonoBehaviour
             object cand = Get(r, "Candidate") ?? Get(r, "Interactable");
             sb.Append(side).Append(" ray: ").Append(state ?? "?").Append(((Behaviour)r).enabled ? "" : " (off)").Append("  target: ").Append(Name(cand)).Append('\n');
         }
+        if (simple == null) simple = FindAnyObjectByType<SimpleHandPointer>();
+        if (simple != null) sb.Append("pointer ").Append(simple.Status).Append('\n');
         sb.Append("controllers: ").Append(Ovr("GetConnectedControllers")).Append("  active: ").Append(Ovr("GetActiveController"));
         if (es != null && es.currentSelectedGameObject != null) sb.Append("   selected: ").Append(es.currentSelectedGameObject.name);
         label.text = sb.ToString();

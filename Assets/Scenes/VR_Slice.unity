@@ -9922,6 +9922,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1501541581509192929, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1501827566924896237, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -9931,6 +9935,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2741569544377207976, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264715147639961229, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -10041,6 +10049,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2323200935384738259, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1966508596}
+    - targetCorrespondingSourceObject: {fileID: 2323200935384738259, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1966508597}
     - targetCorrespondingSourceObject: {fileID: 2351121289802177058, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 223303609}
@@ -39224,6 +39235,27 @@ MonoBehaviour:
   canvas: {fileID: 340254366}
   button: {fileID: 855878204}
   label: {fileID: 1059864239}
+--- !u!114 &1966508597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661767264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54dcdb88234c990429bd4d8cc3ca461e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleHandPointer
+  material: {fileID: 2100000, guid: 4957264358dd6f84ab9e04366f6219f0, type: 2}
+  maxDistance: 6
+  handDwell: 1.2
+  gazeDwell: 3
+  gazeInEditor: 0
+  padding: 0.15
+  smoothing: 18
+  idleColor: {r: 1, g: 1, b: 1, a: 0.9}
+  hoverColor: {r: 1, g: 0.85, b: 0.2, a: 1}
 --- !u!1 &1975633375
 GameObject:
   m_ObjectHideFlags: 0
