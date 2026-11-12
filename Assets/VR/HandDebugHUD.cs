@@ -57,7 +57,7 @@ public class HandDebugHUD : MonoBehaviour
             string side = Path(r.transform).Contains("Left") ? "L" : "R";
             object state = Get(r, "State");
             object cand = Get(r, "Candidate") ?? Get(r, "Interactable");
-            sb.Append(side).Append(" ray: ").Append(state ?? "?").Append("  target: ").Append(Name(cand)).Append('\n');
+            sb.Append(side).Append(" ray: ").Append(state ?? "?").Append(((Behaviour)r).enabled ? "" : " (off)").Append("  target: ").Append(Name(cand)).Append('\n');
         }
         sb.Append("controllers: ").Append(Ovr("GetConnectedControllers")).Append("  active: ").Append(Ovr("GetActiveController"));
         if (es != null && es.currentSelectedGameObject != null) sb.Append("   selected: ").Append(es.currentSelectedGameObject.name);
