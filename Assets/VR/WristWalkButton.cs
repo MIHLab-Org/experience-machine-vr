@@ -11,7 +11,8 @@ using Yarn.Unity;
 ///   1. Look at your left wrist, as if checking a watch: a small "Walk" button appears just
 ///      above it. (Palm-up can be required as well: Require Palm Up + Palm Axis.)
 ///   2. Press it (ray-pinch with the right hand, or poke). The button now reads "Cancel" and a
-///      ring appears on the ground where your right hand points (snapped to the NavMesh).
+///      ring appears on the ground where you are LOOKING (Aim With Gaze, default since 2026-11-18;
+///      the right-hand pointer pose flickered on the headset), snapped to the NavMesh.
 ///   3. Pinch with the right hand, or hold the ring still for Dwell Seconds, to confirm.
 ///      WalkAlongMover.WalkToPoint carries you there at walking pace with the comfort
 ///      vignette. No teleport jump.
@@ -59,6 +60,10 @@ public class WristWalkButton : MonoBehaviour
     [SerializeField] private float palmUpAngle = 50f;
 
     [Header("Aiming")]
+    [Tooltip("Aim by looking (head gaze): walk where you are looking. Off = aim with the right hand.")]
+    [SerializeField] private bool aimWithGaze = true;
+    [Tooltip("Gaze pointer tilt below eye level, degrees.")]
+    [SerializeField] private float gazeTilt = 6f;
     [SerializeField] private float maxWalkDistance = 30f;
     [SerializeField] private float dwellSeconds = 1.5f;
     [SerializeField] private float dwellRadius = 0.5f;
@@ -222,14 +227,30 @@ public class WristWalkButton : MonoBehaviour
             }
         }
 
+        if (!hasTarget)
+        {
+            // Looking at the horizon or the sky: take the ground under the point
+            // maxWalkDistance ahead along the look direction (flattened).
+            Vector3 fwd = ray.direction; fwd.y = 0f;
+            if (fwd.sqrMagnitude > 0.01f)
+            {
+                Vector3 far = head.position + fwd.normalized * maxWalkDistance + Vector3.up * 50f;
+                if (Physics.Raycast(far, Vector3.down, out RaycastHit down, 200f, ~0, QueryTriggerInteraction.Ignore)
+                    && NavMesh.SamplePosition(down.point, out NavMeshHit nav2, 4f, NavMesh.AllAreas))
+                { hasTarget = true; target = nav2.position; }
+            }
+        }
+
         ShowAim(hasTarget, ray.origin);
 
         // Dwell: hold the ring roughly still to confirm.
         if (hasTarget)
         {
-            if ((target - dwellCentre).sqrMagnitude > dwellRadius * dwellRadius) { dwellCentre = target; dwellTimer = 0f; }
+            // Far targets wobble more with small head movements, so the dwell circle grows with distance.
+            float radius = Mathf.Max(dwellRadius, 0.06f * Vector3.Distance(head.position, target));
+            if ((target - dwellCentre).sqrMagnitude > radius * radius) { dwellCentre = target; dwellTimer = 0f; }
             else dwellTimer += Time.deltaTime;
-            if (ring != null) ring.localScale = new Vector3(0.6f, 0.01f, 0.6f) * (1f - 0.4f * Mathf.Clamp01(dwellTimer / dwellSeconds));
+            if (ring != null) ring.localScale = new Vector3(0.6f, 0.01f, 0.6f) * Mathf.Max(1f, Vector3.Distance(head.position, target) / 10f) * (1f - 0.4f * Mathf.Clamp01(dwellTimer / dwellSeconds));
             if (Time.time - aimStartTime > 0.5f && dwellTimer >= dwellSeconds) { Confirm(); return; }
         }
         else dwellTimer = 0f;
@@ -237,7 +258,7 @@ public class WristWalkButton : MonoBehaviour
         // Pinch (right hand): needs a release after the press that opened aiming.
         bool pinch = RightPinching();
         if (!pinch) pinchArmed = true;
-        if (pinch && !lastPinch && pinchArmed && Time.time - aimStartTime > 0.3f && fromHand) Confirm();
+        if (pinch && !lastPinch && pinchArmed && Time.time - aimStartTime > 0.3f) Confirm();
         lastPinch = pinch;
     }
 
@@ -255,6 +276,8 @@ public class WristWalkButton : MonoBehaviour
     private Ray PointerRay(out bool fromHand)
     {
         fromHand = false;
+        if (aimWithGaze)
+            return new Ray(head.position, Quaternion.AngleAxis(gazeTilt, head.right) * head.forward);
         if (rightOvrHand != null && Tracked(rightOvrHand) && pointerPoseProp != null)
         {
             bool valid = pointerValidProp == null || (bool)pointerValidProp.GetValue(rightOvrHand);
@@ -351,7 +374,7 @@ public class WristWalkButton : MonoBehaviour
     {
         if (show && ring == null) BuildRing();
         if (ring != null) ring.gameObject.SetActive(show);
-        if (line != null) line.enabled = show;
+        if (line != null) line.enabled = show && !aimWithGaze; // no line from the eyes when aiming by gaze
         if (!show) return;
         ring.position = target + Vector3.up * 0.02f;
         line.SetPosition(0, from);

@@ -83,6 +83,18 @@ public static class QuestReleaseBuild
         EditorSceneManager.SaveOpenScenes();
         AssetDatabase.SaveAssets();
 
+        // Never rebuild a version that was already built (Meta rejects a repeated version code):
+        // bump the last number of the version and the version code.
+        while (File.Exists($"Builds/release/ExperienceMachine-{PlayerSettings.bundleVersion}.apk"))
+        {
+            string[] parts = PlayerSettings.bundleVersion.Split('.');
+            if (!int.TryParse(parts[parts.Length - 1], out int last)) break;
+            parts[parts.Length - 1] = (last + 1).ToString();
+            PlayerSettings.bundleVersion = string.Join(".", parts);
+            PlayerSettings.Android.bundleVersionCode += 1;
+            AssetDatabase.SaveAssets();
+        }
+
         string version = PlayerSettings.bundleVersion;
         int code = PlayerSettings.Android.bundleVersionCode;
         Directory.CreateDirectory("Builds/release");
