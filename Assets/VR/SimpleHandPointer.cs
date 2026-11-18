@@ -14,12 +14,20 @@ using UnityEngine.UI;
 ///   - pinch (thumb + index) while the dot is on it, or
 ///   - hold the dot on it for Hand Dwell seconds (the dot grows as it fills).
 /// If no hand is tracked, looking at a button for Gaze Dwell seconds presses it (headset only).
+/// Only the Pointer Hand points (right by default). The other hand moves you with thumb
+/// microgestures: at start this turns off Meta's microgesture locomotion on the pointer hand,
+/// so a pinch to press a button can never also step or turn you (2026-11-17).
 /// Meta's OVRHand is read by name, so there are no SDK type references. Put it on the Camera Rig.
 /// </summary>
 public class SimpleHandPointer : MonoBehaviour
 {
     [Tooltip("Unlit material for the dots and lines (e.g. WristWalkTarget).")]
     public Material material;
+    public enum Hand { Left, Right, Both }
+    [Tooltip("Which hand points at buttons. The other hand keeps thumb-swipe movement.")]
+    public Hand pointerHand = Hand.Right;
+    [Tooltip("Turn off Meta's microgesture locomotion on the pointer hand.")]
+    public bool movementOnOtherHandOnly = true;
     public float maxDistance = 6f;
     [Tooltip("Seconds the dot must rest on a button to press it without pinching. 0 = pinch only.")]
     public float handDwell = 1.2f;
@@ -61,6 +69,7 @@ public class SimpleHandPointer : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             Pointer p = pointers[i];
+            if (!UsesHand(i)) { Clear(p); continue; }
             bool tracked = p.ovrHand != null && p.anchor != null && Tracked(p.ovrHand);
             if (!tracked) { Clear(p); sb.Append(i == 0 ? "L:- " : "R:- "); continue; }
             anyHand = true; lastHandTime = Time.unscaledTime;
@@ -79,6 +88,28 @@ public class SimpleHandPointer : MonoBehaviour
         if (gaze) { Tick(g, new Ray(head.position, head.forward), false, gazeDwell, false); sb.Append("gaze:").Append(g.hover != null ? g.hover.name : "-"); }
         else Clear(g);
         Status = sb.ToString();
+    }
+
+    private bool UsesHand(int i) => pointerHand == Hand.Both || (i == 0 ? pointerHand == Hand.Left : pointerHand == Hand.Right);
+
+    private void Start() { SplitHands(); }
+
+    /// <summary>Turns off the microgesture locomotion group under the pointer hand's interactors
+    /// (ComprehensiveInteractorsLeft/Right in Meta's rig), leaving the other hand's on.</summary>
+    private void SplitHands()
+    {
+        if (!movementOnOtherHandOnly || pointerHand == Hand.Both) return;
+        string side = pointerHand == Hand.Right ? "Right" : "Left";
+        foreach (Transform t in FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (t.name.IndexOf("MicroGesturesLocomotion", StringComparison.OrdinalIgnoreCase) < 0) continue;
+            for (Transform a = t.parent; a != null; a = a.parent)
+            {
+                if (a.name.IndexOf("ComprehensiveInteractors", StringComparison.OrdinalIgnoreCase) < 0) continue;
+                if (a.name.EndsWith(side, StringComparison.OrdinalIgnoreCase)) t.gameObject.SetActive(false);
+                break;
+            }
+        }
     }
 
     private void Tick(Pointer p, Ray ray, bool pinchDown, float dwellTime, bool showLine)

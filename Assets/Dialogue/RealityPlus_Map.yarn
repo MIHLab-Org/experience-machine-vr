@@ -110,6 +110,17 @@ area: Hub
 <<declare $is_contractarian = false>>
 <<declare $is_rawlsian = false>>
 <<set $met_socrates to true>>
+// HOW TO PLAY (added 2026-11-18 for the contest build): plays once, before Socrates first speaks.
+Guide: Welcome to the Peripatos. You play with your hands alone, no controllers.
+Guide: Point with your right hand. A small dot shows where you are pointing. To press a button, put the dot on it and pinch your thumb and index finger together, or hold the dot still on it for a moment.
+-> Show me how to move.
+    Guide: Move with your left hand. Curl it loosely, with your thumb resting on the side of your index finger.
+    Guide: Swipe your thumb forward along your finger to move ahead. Swipe it left or right to turn.
+    Guide: You can also look at your left wrist, as if checking a watch. A Walk button appears. Press it, point at the ground where you want to go, and pinch.
+    Guide: When you come near a philosopher, a Talk button appears. Some of them will walk with you to the next grove. Press Stop at any time to stop walking.
+    Guide: That is all. Socrates is waiting.
+-> I know how to play.
+    Guide: Then go on. Socrates is waiting.
 Socrates: Ah, a visitor. Walk with me a while.
 Socrates: Behold, the land lies before you. Could you tell me what you think this land is? Questions, questions and possibilities, of many many different kinds of questions. Every grove is different, every grove holds new questions, new possibilities, and not merely a few impossibilities.
 Socrates: Look over there, to the north of us, do you see trees? Of course you do. There are trees to the north of us, but also to the north of us lies Metaphysics and Epistemology.
